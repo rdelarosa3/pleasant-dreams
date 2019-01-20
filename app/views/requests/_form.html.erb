@@ -1,0 +1,21 @@
+
+<!-- <span id="requestPartial">< render partial:"/requests/errors" %></span> -->
+<%= simple_form_for @request do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  First Name
+  <%= f.input :first_name, label: false %>
+  Last Name
+  <%= f.input :last_name, label: false %>
+  Your Phone Number 
+  <%= f.input :phone_number, label: false %>
+  Your Email
+  <%= f.input :email, label: false %>
+  Subject
+  <%= f.input :subject, label: false %>
+  Your Message 
+  <%= f.input :message, label: false %>
+  <p class="hint-text text-center small text">Our staff members will contact you soon.</p>
+  <%= f.button :submit, 'Send Message', class: "btn btn-danger btn-large mb-1" %>
+  
+<% end %>    

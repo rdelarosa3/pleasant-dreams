@@ -1,0 +1,25 @@
+<style>
+  .mt-200{
+    margin-top:200px;
+  }
+</style>
+<center>
+<div id="clearance" class="password-reset mt-200">
+  <h2><%= t(".title") %></h2>
+
+  <p><%= t(".description") %></p>
+
+  <%= form_for :password_reset,
+        url: user_password_path(@user, token: @user.confirmation_token),
+        html: { method: :put } do |form| %>
+    <div class="password-field">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="submit-field">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+</center>

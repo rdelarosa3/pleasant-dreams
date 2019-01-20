@@ -1,0 +1,10 @@
+id="grid-container"
+
+html += "<div class='instagram_gallery grid-item'>";
+for(var i = 0; i < max; i++){
+var url = "https://www.instagram.com/p/"+ imgs[i].node.shortcode;
+html += "<a href='"+url+"' target='_blank'>";
+html += " <img src='"+ imgs[i].node.thumbnail_src +"' alt='"+ options.username +" instagram image "+ i+"'"+styles.gallery_image+" class='instagram-thumbs' />";
+html += "</a>";
+}
+html += "</div>";

@@ -1,0 +1,26 @@
+<!-- <div class="text-field">
+  = form.label :email %>
+  = form.text_field :email, type: 'email' %>
+</div>
+
+<div class="password-field">
+  = form.label :password %>
+  = form.password_field :password %>
+</div>
+ -->
+
+
+ <h2 class="text-center"></h2> 
+ 
+  <%= simple_form_for @user, html: { class: "form-signup" } do |u| %>
+
+    <%= u.input :email, placeholder: 'Email address', label: false %>
+    <%= u.input :last_name, placeholder: 'Last name', label: false, error: 'Last name is mandatory, please specify one' %>
+    <%= u.input :first_name, placeholder: 'First name', label: false, error: 'First name is mandatory, please specify one' %>
+    <%= u.input :password, placeholder: 'Create a Password', required: true, label: false %>
+    <%= u.input :password_confirmation, placeholder: 'Confirm Password', label: false  %>
+    
+    <%= u.button :submit, 'Sign Up', class:"btn btn-danger btn-block", id: "user_submit" %>
+  <% end %>
+<br>
+<p class="hint-text text-center small text" >Already have an account? <%= link_to 'Sign In', sign_in_path, class: "text-success" %></p></p>

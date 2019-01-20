@@ -1,0 +1,232 @@
+<style>
+.navbar #navbar-dropdown:hover + .dropdown-menu{
+    display:block;
+}
+.dropdown-menu:hover{
+    display:block;
+}
+#userNotify span:hover + .dropdown-menu{
+    display:block;
+}
+.dropdown-menu {
+    padding: 40px;
+    font-size: inherit;
+    position: absolute;
+    z-index: 2000!important;
+    top: 100%;
+    left: 0;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    margin: -0.875rem 0 0;
+    list-style: none;
+    text-align: left;
+    color: #06cdec;
+    border: 0 solid rgba(0,0,0,0.15);
+    border-radius: .3rem;
+    background-color: #212529;
+    background-clip: padding-box;
+    box-shadow: 0 50px 100px rgba(50,50,93,0.1), 0 15px 35px rgba(50,50,93,0.15), 0 5px 15px rgba(0,0,0,0.1);
+    padding-right: 350px
+  }
+@media (max-width: 800px){
+.dropdown-menu {
+    font-size: inherit;
+    padding: 0px!important;
+    margin-left: 30px!important;
+}
+}
+@media (max-width: 900px){
+.badge-notify {
+    float: left;
+    margin-left: -5px !important;
+    margin-top: -33px !important;
+    color: white;
+    background-color: red;
+    padding: 0.4em;
+    border-radius: 10rem;
+    font-weight: 100;
+  }
+}
+.dropdown-divider {
+    overflow: hidden;
+    height: 0;
+    margin-left: -25px;
+    border-top: 1px solid #e9ecef;
+}
+
+@media (min-width: 1000px){
+  #userNotify .badge-notify {
+    margin-top: -45px;
+  }
+  .fa-bell {
+    display: none;
+  }
+}
+.fa-bell {
+    color: red;
+    float: right;
+    margin-right: -7px;
+    margin-top: -10px;
+    transform: rotate(25deg);
+}
+
+  .ring{
+    animation: ring .6s infinite;
+   }
+   
+   @keyframes ring{
+    0%{transform: rotate(90deg);}
+    40%{transform: rotate(45deg);}
+    60%{transform: rotate(0deg);}
+    100%{transform: rotate(45deg);}
+   }
+
+   @media (max-height: 568px){
+    .navbar-nav .dropdown-menu {
+      position: absolute;
+      width: 100%;
+     }
+     .navbar-collapse {
+      overflow-y: auto;
+    }
+    #userNotify .badge-notify{
+      margin-left: 0px !important
+    }
+  }
+  @media (min-width:992px) and (max-width:1350px){
+    .dropdown-menu{
+      /*margin-left: -70px!important;*/
+    }
+  }
+@media (min-width: 992px){
+  .navbar-nav .dropdown-menu:before {
+    position: absolute;
+    z-index: -5;
+    bottom: 101%;
+    left: 20px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: '';
+    transform: rotate(-45deg) translateY(1rem);
+    border-radius: .2rem;
+    background: #212529;
+    box-shadow: none;
+    border-right: solid white 1px;
+    border-top: solid white 1px;
+  }
+  .dropdown-menu {
+    margin-left: -11px;
+    margin-top: 3px;
+    padding-right: 12px;
+    width: 200px;
+    border: solid white 1px;
+    z-index: 2000;
+  }
+}
+</style>
+
+<nav class="navbar navbar-expand-lg shadow navbar-dark fixed-top" id="mainNav">
+
+  <div class="container">
+    <!-- navbar brand section and toggle section -->
+    <%= link_to "Pleasant Dreams Co.", root_path, class: "navbar-brand  js-scroll-trigger font-weight-bold " %>
+    <button class="navbar-toggler navbar-toggler-right mr-2" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars" style="color: #c74735;"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+
+    <!-- custom navbar links for welcome page only   -->
+      <ul class="navbar-nav text-uppercase ml-auto">
+         <!-- if controller_name == "welcome" %> -->
+        <li class="nav-item">
+        <% if controller_name == 'welcome' %>
+          <span class="nav-link js-scroll-trigger", id="inkslink">Fresh Inks</span>
+        <% else %>
+          <%= link_to "Fresh Inks", root_path(anchor: "gallery"), class: "nav-link js-scroll-trigger", id: "inkslink" %>
+        <% end %>
+        </li>
+        <li class="nav-item">
+        <% if controller_name == 'welcome' %>
+          <span class="nav-link js-scroll-trigger", id="serviceslink">Services</span>
+        <% else %>
+          <%= link_to "Services", root_path(anchor: "services"), class: "nav-link js-scroll-trigger" %>
+        <% end %>
+          <!-- <a class="nav-link js-scroll-trigger" href="#services">Services</a> -->
+        </li>
+
+        <li class="nav-item">
+        <% if controller_name == 'welcome' %>
+          <span class="nav-link js-scroll-trigger", id="artistslink">Artists</span>
+        <% else %>
+          <%= link_to "Artists", root_path(anchor: "team"), class: "nav-link js-scroll-trigger" %>
+        <% end %>
+          <!-- <a class="nav-link js-scroll-trigger" href="#team">Team</a> -->
+        </li>
+         <!-- end %> -->
+
+     <!-- link to requests section and contact page    -->
+        <li class="nav-item">
+          <%= link_to "Contact", new_request_path, class: "nav-link"%>
+        </li>
+
+     <!-- custom links if logged in    -->
+        <% if signed_in? %>
+          <!-- user section  -->
+          <% if current_user.avatar? %>
+            <li class="nav-item user-avatar dropdown" id="userNotify"> 
+                <%= link_to image_tag(current_user.avatar_url,class: 'rounded-circle nav-img',width: '30', height: '30'), current_user, class: "nav-link", id: "navbar-dropdown", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
+            
+          <% else %>
+            <li class="nav-item dropdown" id="userNotify"> 
+                <%= link_to current_user.first_name, current_user, class: "nav-link", id: "navbar-dropdown", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>        
+          <% end %>
+
+          <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+    
+            <!-- <span> </span> -->
+            <%= link_to 'Profile', current_user, class: "nav-item nav-link" %>
+            
+            <% if current_user.admin? || current_user.operator? %>
+              <div class="dropdown-divider"></div>
+              <span>Admin</span>
+              <%= link_to "requests", requests_path, class: "nav-item nav-link" %>
+              
+              <% if current_user.operator? %>
+                <%= link_to "Dashboard", rails_admin_path, class: "nav-item nav-link" %>
+              <% end %>
+              <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Sign out', sign_out_path, class: "nav-link nav-item", method: :delete %>
+          </div>
+
+          </li>
+
+        <!-- while logged out -->  
+        <% end %>
+
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+$("#inkslink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#gallery").offset().top
+    }, 2000);
+});
+$("#artistslink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#team").offset().top
+    }, 1800);
+});
+$("#serviceslink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#services").offset().top
+    }, 1800);
+});
+</script>

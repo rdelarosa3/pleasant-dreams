@@ -1,0 +1,147 @@
+<!-- css in page to change only elements in this view -->
+<style>
+  body {
+    background-color: #000000cf;
+    color:white;
+  }
+
+  .card, .card a, .card p{
+    background: url('<%= asset_url "broken_noise.png"%>');
+    color:white;
+  }
+  .mt-100 {
+    margin-top: 100px;
+  }
+
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  @media only screen and (device-width: 768px) {
+  	#editDiv {
+  		margin-left: 100px;
+  		flex: 0 0 50%;
+    max-width: 50%;
+  	}
+  }
+
+</style>
+
+<div class="container mt-100">
+	<%= simple_form_for @user do |f| %>
+    <div class="row">
+    	<!-- edit users avatar only -->
+    	<div class="col-md-3 p-4" id="avatarForm">
+    		
+	    		<center>
+	    		<div class="form-group">
+		    		<% if @user.avatar? %>
+		          		<%= image_tag(@user.avatar_url,class: 'rounded-circle shadow',width: '200', height: '200') %>
+		          		<br>
+		          		<br>
+					     <%= f.input_field :remove_avatar, as: :hidden, value: "0",id: "user_remove_avatar", name: "user[remove_avatar]" %>
+					     <button class="btn btn-sm btn-danger mt-0 mb-2" id='avatarRemove'>Remove</button>
+					     
+			      	<% else %>
+			          <%= image_tag( "default_avatar.jpg", style: "filter: invert(100%);", class: 'rounded-circle',width: '200', height: '200', id: "image_upload_preview") %>
+		      	
+				         <br>
+				         <br>
+				         <%= f.file_field :avatar,required: true %> 
+				         <button class="btn btn-sm btn-danger mt-2" id='avatarButton' style='display: none;'>Update</button>
+
+				    <% end %>
+				
+		      	</center>
+	      	
+	      <br>
+	      <%= link_to 'View Profile', @user, class: "btn btn-block btn-danger shadow" %>
+		</div>
+		<!-- !edit users avatar only -->
+
+		<!-- edit users profile information -->
+		<div class="col-md-9 mb-4" id="editDiv">
+			<div class="card shadow">
+				<h4 class="text-center mt-4">Required Information</h4> 
+				<center><p id="notice"><%= notice %></p></center>
+				<div class="card-body" id="userEdit">
+					
+					
+					<%= f.input :first_name, label: 'First Name', error: 'First name is mandatory, please specify one' %>
+					<%= f.input :last_name, label: 'Last Name', error: 'Last name is mandatory, please specify one', hint: 'Your public profile only shows your first name.' %>
+					<% if @user.admin? || @user.operator? %>
+					<%= f.input :title, label: "Current Title" %>
+					<%= f.input :facebook, label: 'Facebook Page', hint: 'Valid links start with http: or https:' %>
+					<%= f.input :instagram, label: 'Instagram Page', hint: 'Valid links start with http: or https:' %>
+					<%= f.input :linkedin, label: 'Linkedin Page', hint: 'Valid links start with http: or https:' %>
+					<% end %>
+					<%= f.input :birthday, as: :date, start_year: Date.today.year - 16,
+					                  end_year: Date.today.year - 90, discard_day: false,
+					                  order: [:year, :month, :day], hint: "The magical day you were dropped from the sky by a stork. We use this data for analysis and never share it with other users." %>
+					<%= f.input :phone_number, label: 'Telephone Number', error: 'Please help us able to contact you for future reservations. Phone Number requires an area code.', hint: 'We won’t share your phone number this is just to help us get in contact with you.' %>
+					<!-- f.input :email, placeholder: 'user@domain.com', hint: 'We won’t share your private email address.'  -->
+					 <button class="btn btn-lg btn-danger" id="secondSubmit" style="display: none;">Save</button>
+					 </div> 
+					 <!-- close form group  -->
+					<% end %>       
+				</div>
+			</div>
+			<br>
+		</div>
+		<!-- !edit users profile information -->
+	</div>
+</div>
+
+<script>
+// preview image upload function
+function readURL(input) {
+    if (user_avatar.files && user_avatar.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_upload_preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(user_avatar.files[0]);
+    }
+}
+// if avatar image file is selected call preview function and shows avatar button
+$("#user_avatar").on('change', function() {
+     $("#avatarButton").show();
+     readURL(this);
+});
+
+// submit form on click from avatar button
+$("#avatarButton").click(function(){
+	$("#edit_user_<%= @user.id %>").submit();
+});
+
+// change the value to remove avatar in active record
+$("#avatarRemove").click(function(){
+	$("#user_remove_avatar").val(1);
+	$("#edit_user_<%= @user.id %>").submit();
+});
+
+// submit form from required fields only if values change
+$(document).ready(function() {
+	$("#edit_user_<%= @user.id %> :input").on('change',function() {
+	$("#secondSubmit").show();
+	$("#edit_user_<%= @user.id %>").data("changed",true);
+	});
+});
+
+if ($("#edit_user_<%= @user.id %>").data("changed")) {
+   $("#secondSubmit").click(function(){
+   	$("#edit_user_<%= @user.id %>").submit();
+   });
+};
+
+</script>
