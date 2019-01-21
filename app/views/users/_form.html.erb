@@ -11,8 +11,9 @@
 
 
  <h2 class="text-center"></h2> 
- 
-  <%= simple_form_for @user, html: { class: "form-signup" } do |u| %>
+ <%= simple_form_for @user, :url => { :action => "new_staff" }, :html => { :method => "put", class: "form-signup" } do |u| %>
+
+  <!-- = simple_form_for @user, html: { class: "form-signup" } do |u| %> -->
 
     <%= u.input :email, placeholder: 'Email address', label: false %>
     <%= u.input :last_name, placeholder: 'Last name', label: false, error: 'Last name is mandatory, please specify one' %>
@@ -23,4 +24,3 @@
     <%= u.button :submit, 'Sign Up', class:"btn btn-danger btn-block", id: "user_submit" %>
   <% end %>
 <br>
-<p class="hint-text text-center small text" >Already have an account? <%= link_to 'Sign In', sign_in_path, class: "text-success" %></p></p>

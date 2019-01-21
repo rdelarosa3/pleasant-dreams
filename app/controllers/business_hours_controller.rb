@@ -4,8 +4,14 @@ class BusinessHoursController < ApplicationController
   
   def new
     @business_hour = BusinessHour.new
+    @business = Business.first
   end
 
+
+  def index
+    @business_hours = BusinessHour.all
+    @business = Business.first
+  end  
   def create
     @business_hour = BusinessHour.new(business_hour_params)
 

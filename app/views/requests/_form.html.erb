@@ -12,9 +12,9 @@
   Your Email
   <%= f.input :email, label: false %>
   Subject
-  <%= f.input :subject, label: false %>
+  <%= f.input :subject, collection: ['Schedule Consult','Request Artist','Other'], label: false %>
   Your Message 
-  <%= f.input :message, label: false %>
+  <%= f.input :message, :input_html => {:rows => 2}, label: false %>
   <p class="hint-text text-center small text">Our staff members will contact you soon.</p>
   <%= f.button :submit, 'Send Message', class: "btn btn-danger btn-large mb-1" %>
   

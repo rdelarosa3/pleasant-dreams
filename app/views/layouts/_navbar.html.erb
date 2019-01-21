@@ -201,10 +201,9 @@ and (orientation : portrait) {
               <div class="dropdown-divider"></div>
               <span>Admin</span>
               <%= link_to "requests", requests_path, class: "nav-item nav-link" %>
-              
-              <% if current_user.operator? %>
-                <%= link_to "Dashboard", rails_admin_path, class: "nav-item nav-link" %>
-              <% end %>
+              <%= link_to "New User", sign_up_path, class: "nav-item nav-link" %>
+              <%= link_to "Business Details", edit_business_path(@business.id), class: "nav-item nav-link" %>
+
               <% end %>
             <div class="dropdown-divider"></div>
             <%= link_to 'Sign out', sign_out_path, class: "nav-link nav-item", method: :delete %>

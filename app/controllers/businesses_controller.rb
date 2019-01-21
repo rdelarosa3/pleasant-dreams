@@ -2,7 +2,9 @@ class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
   before_action :authorize, only: [:show, :edit, :update, :destroy]
 
-
+  def index
+    @businesses = Business.all
+  end
   def new
     @business = Business.new
   end
@@ -43,7 +45,9 @@ class BusinessesController < ApplicationController
 
   private
     def authorize
-      redirect_to root_path, alert: 'You must be admin to access this page.' if current_user.nil? || !current_user.admin?
+      unless signed_in? && (current_user.admin? || current_user.operator?)
+      redirect_to root_path, alert: 'You must be admin to access this page.' 
+      end
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_business
@@ -52,6 +56,6 @@ class BusinessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:name, :street, :city, :state, :country, :phone, :zipcode, :email, :facebook, :instagram, :youtube, :twitter, :logo, :link_id, :operator)
+      params.require(:business).permit(:name, :street, :city, :state, :country, :phone, :zipcode, :email, :facebook, :instagram, :youtube, :twitter, :logo, :link_id, :operator, :bio, :hashtag)
     end
 end
