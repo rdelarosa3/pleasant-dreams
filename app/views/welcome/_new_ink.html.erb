@@ -111,7 +111,7 @@
 <script>
 	 $(document).ready(function(){
 	     $.instagramFeed({
-	 		'username': 'tattoo', // or tagging
+	 		'username': '<%= @business.hashtag.gsub(/\s+/, '').gsub(/\W/, ' ') %>', // or tagging
 	 		'container': ".instagram-feed",
 	 		'callback': null,
 	 		'styling': false,
