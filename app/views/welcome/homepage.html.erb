@@ -331,7 +331,7 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
     padding: 0 !important;
     transition: .6s ease-in-out !important;
 }
-@media (max-width: 800px) or {
+@media (max-width: 800px){
   #bookingContainer {
     display: none;
     max-height: 100% !important;
@@ -374,28 +374,7 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : landscape) {
-  #bookingContainer {
-    display: none;
-    max-height: 100% !important;
-    border-radius: 0 0 0 0 !important;
-    transition: all .6s ease-in-out,width .2s ease-in-out,top .4s ease-in-out !important;
-    background: #fff !important;
-    position: fixed !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    top: 0 !important; 
-    width: 100% !important;
-    height: 100% !important;
-    color: #000 !important;
-    line-height: 2 !important;
-    text-align: left !important;
-    z-index: 1031 !important;
-    zoom: 0 !important;
-    transition: .3s ease-in-out !important;
-    -webkit-font-smoothing: antialiased !important;
-    overflow: auto
-    /*margin-bottom: 40px!important;*/
-}
+
 }
 
 @media (min-width: 800px){
@@ -535,11 +514,8 @@ and (orientation : landscape) {
   .parallax {
   /* The image used */
   background-image: url('<%= asset_url "parallax.jpg"%>');
-
-  /* Set a specific height */
   min-height: 700px; 
 
-  /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
