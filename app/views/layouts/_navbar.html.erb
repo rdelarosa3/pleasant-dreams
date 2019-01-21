@@ -141,14 +141,14 @@
     <!-- custom navbar links for welcome page only   -->
       <ul class="navbar-nav text-uppercase ml-auto">
          <!-- if controller_name == "welcome" %> -->
-        <li class="nav-item">
+        <li class="nav-item"data-toggle="collapse" data-target=".navbar-collapse.show" >
         <% if controller_name == 'welcome' %>
           <span class="nav-link js-scroll-trigger", id="inkslink">Fresh Inks</span>
         <% else %>
           <%= link_to "Fresh Inks", root_path(anchor: "gallery"), class: "nav-link js-scroll-trigger", id: "inkslink" %>
         <% end %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
         <% if controller_name == 'welcome' %>
           <span class="nav-link js-scroll-trigger", id="serviceslink">Services</span>
         <% else %>
@@ -157,7 +157,7 @@
           <!-- <a class="nav-link js-scroll-trigger" href="#services">Services</a> -->
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
         <% if controller_name == 'welcome' %>
           <span class="nav-link js-scroll-trigger", id="artistslink">Artists</span>
         <% else %>
@@ -229,4 +229,5 @@ $("#serviceslink").click(function() {
         scrollTop: $("#services").offset().top
     }, 1800);
 });
+
 </script>

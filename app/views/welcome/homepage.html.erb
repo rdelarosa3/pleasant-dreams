@@ -370,6 +370,15 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
   }
 }
 
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+ #bookingContainer {
+  margin-bottom: 50px!important;
+ }
+}
+
 @media (min-width: 800px){
 #bookingContainer {
     display: none;
@@ -391,7 +400,7 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
     zoom: 0 !important;
     transition: .3s ease-in-out !important;
     -webkit-font-smoothing: antialiased !important;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 .booking-top-bar {
   padding-bottom: 50px;
@@ -517,8 +526,8 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
 }
 
 .form-border, #bookingContainer {
-  background: url('<%= asset_url "broken_noise.png"%>');
-  color:white;
+  background: url('<%= asset_url "broken_noise.png"%>')!important;
+  color:white!important;
 }
 .form-border .btn {
   width: 100%!important;
@@ -559,7 +568,7 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
   </div>
 </div>
 
-<!-- Our Products -->
+<!-- About -->
 <section id="about" style="background: url('<%= asset_url "broken_noise.png"%>');">
   <div class="contain">
     <div class="row">

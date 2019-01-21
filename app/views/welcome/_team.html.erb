@@ -3,6 +3,7 @@
     #memberRow{
     flex-wrap: unset!important;
     overflow-x: auto;
+    }
   }
 
 @media (max-height: 450px){
@@ -73,10 +74,13 @@
   
   <div class="row">
     <div class="mx-auto text-center">
-    <% if @staff.count > 3 %>   
+     
+      <div class="memberNav">
+      <% if @staff.count > 3 %>  
         <%= image_tag("prev.png",class: 'float-left mr-4', id: "memberLeft") %>
         <%= image_tag("next.png",class: 'float-right ml-4', id: "memberRight") %>
-    <% end %>
+      <% end %>
+      </div>
         <p class="large">Make your appointment with one of our highly skilled team members today.</p>
     </div>
   </div>
@@ -93,6 +97,12 @@ $(document).ready(function(){
       console.log("pressed");
           $('#memberRow').animate({scrollLeft:'-500%'}, 'slow');
     });
+});
+
+$(document).ready( function() {
+    if (screen.width <= 480) {
+        $('.memberNav').hide();
+    }
 });
 
 </script>

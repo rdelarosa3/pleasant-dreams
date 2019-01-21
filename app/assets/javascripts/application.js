@@ -17,9 +17,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-$(document).click(function(e) {
-if (!$(e.target).is('.panel-body')) {
-    $('.collapse').collapse('hide');      
-  }
-});
