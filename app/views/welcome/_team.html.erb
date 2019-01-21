@@ -25,7 +25,11 @@
   <!-- list each member that is artist from database -->
   <div class="row scrolling-wrapper tab" id="memberRow">
     <% @staff.each do |artist|%>
-      <div class="col-sm-4">
+     <% if @staff.count > 1 %>
+      <div class="col-md-4">
+     <% else %>
+      <div class="col-md-12">
+     <% end %>
         <div class="team-member">
           <% if  artist.avatar? %>
             <%= link_to image_tag(artist.avatar_url, class: ' mx-auto rounded-circle',width: '255', height: '255', alt: ""), artista_path(artist.id) %>
