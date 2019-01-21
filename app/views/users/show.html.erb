@@ -134,7 +134,7 @@
 <script>
    $(document).ready(function(){
        $.instagramFeed({
-      'username': '<%= @user.hashtag.gsub(/\s+/, '').gsub(/\W/, ' ') %>', // or tagging
+      'username': '<%= @user.hashtag.gsub(/\s+/, '').gsub(/\W/, ' ') if @user.hashtag.present? %>', // or tagging
       'container': ".instagram-feed",
       'callback': null,
       'styling': false,

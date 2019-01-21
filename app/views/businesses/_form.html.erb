@@ -1,0 +1,57 @@
+<div class="container mt-100">
+  <div class="row">
+    <div class="col-md-12 mb-4" id="editDiv">
+      <div class="card shadow">
+        <h4 class="text-center mt-4">Company Info</h4> 
+        <center><p id="notice"><%= notice %></p></center>
+        <div class="card-body" id="userEdit">
+          <%= simple_form_for(@business) do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+            <div class="form-inputs">
+              <div class='row'>
+              <div class='col-md-4'>
+              <%= f.input :name, label: 'Company Name' %>
+              </div>
+              <div class='col-md-4'>
+              <%= f.input :phone, label: 'Telephone Number', error: 'Please help users able to contact you for future reservations.', hint: 'Phone Number requires an area code.' %>
+              </div>
+              <div class='col-md-4'>
+              <%= f.input :email, label: 'Email' %>
+              </div>
+              </div>
+              <div class='row'>
+              <div class='col-12'>
+              <%= f.input :operator, label: 'Business Owner' %>  
+              </div>
+              <div class='col-12'>
+              <%= f.input :street, label: 'Street' %>
+              </div>
+              <div class='col-4'>
+              <%= f.input :city, label: 'City' %>
+              </div>
+              <div class='col-4'>
+              <%= f.input :state, label: 'State' %>
+              </div>
+              <div class='col-4'>
+              <%= f.input :zipcode, label: 'Zipcode' %>
+              </div>
+              </div>
+              <%= f.input :facebook, label: 'Facebook Page', hint: 'Valid links start with http: or https:' %>
+              <%= f.input :instagram, label: 'Instagram Page', hint: 'Valid links start with http: or https:' %>
+              <%= f.input :youtube, label: 'Youtube Page', hint: 'Valid links start with http: or https:' %>
+              <%= f.input :twitter, label: 'Twitter Page', hint: 'Valid links start with http: or https:' %>
+              <%= f.input :hashtag, label: "Gallery Keyword", hint: 'Enter a unique Instagram hashtag for your gallery.' %>
+              <%= f.input :bio, :input_html => {:rows => 5}, label: "Business Bio", hint: 'Write a brief summary of your Business to be seen on landing page.' %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, 'Update', class: "btn btn-danger btn-large mb-1" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

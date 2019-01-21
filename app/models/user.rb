@@ -19,7 +19,7 @@ class User < ApplicationRecord
 	validates_confirmation_of :password
 	validates :email, uniqueness: true
 	validates :first_name, :last_name, :email, presence: true
-	validates :phone_number, numericality: { only_integer: true }, length: { minimum: 10, maximum: 15, message: 'Please provide area code' }, on: :update
+	validates :phone_number, :allow_blank => true, numericality: { only_integer: true }, length: { minimum: 10, maximum: 15, message: 'Please provide area code' }, on: :update
 	before_update :facebook_format, :instagram_format, :linkedin_format
 
   	def fullname
