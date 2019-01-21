@@ -22,6 +22,8 @@ ActiveRecord::Base.transaction do
       business['instagram'] = 'https://www.instagram.com/richardbiglopez'
       business['facebook'] = 'https://www.facebook.com/BIG7395REWK'
       business['youtube'] = 'https://www.youtube.com/'
+      business['hashtag'] = 'tattoo'
+      business['bio'] = 'Pleasant Dreams offers top quality work. All artists are trained in best and safe practices to ensure the safety of all of our clients.'
       Business.create(business)
 end
 
@@ -40,7 +42,7 @@ ActiveRecord::Base.transaction do
 end 
 
 title = {}
-titles =  ["Artist", "Senior Artist", "Makeup Artist","Receptionist"]
+titles =  ["Artist", "Senior Artist", "Operator","Receptionist"]
 
 ActiveRecord::Base.transaction do
 	titles.length.times do
@@ -61,6 +63,14 @@ ActiveRecord::Base.transaction do
     user['role'] = 2
     user['birthday'] = Date.today
     user['password'] = 'admin'
+    user['hashtag'] = 'pleasantdreamsco'
+    user['phone_number'] = "+1 (210) 923-1894"
+    user['bio'] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     User.create(user)
 
 end 

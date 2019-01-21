@@ -34,12 +34,10 @@ class RequestsController < ApplicationController
     # end
   end
 
-  def contact
-    @request = Request.new
-  end
 
   def new
     @request = Request.new
+    @business = Business.first
   end
 
   def edit
