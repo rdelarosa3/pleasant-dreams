@@ -1,3 +1,4 @@
+<% unless controller_name == 'requests' %>
 <% if controller_name == 'passwords' %>
 <style>
   footer {
@@ -7,6 +8,7 @@
 </style>
 <% end %>
 <!-- Footer -->
+<% @business = business_info%>
 <footer class="page-footer font-small blue-grey lighten-5">
   <!-- Footer Links -->
   <div class="container text-center text-md-left mt-5">
@@ -15,51 +17,27 @@
       <!-- Grid column -->
       <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold"><%= business_info.name %></h6>
+        <h6 class="text-uppercase font-weight-bold"><%= @business.name %></h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
-          adipisicing elit.
+          <% if @business.bio.present? %>
+          <%= @business.bio %>
+          <% end %>
         </p>
 
       </div>
       <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+      <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold"></h6>
+        <center>
+        <h6 class="text-uppercase font-weight-bold">Business Hours</h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
-      </div>
-      <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold"></h6>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!"></a>
-        </p>
+        <% @business.business_hours.each do |hours| %>
+        <%= hours.day %> -  <%= hours.open_time.strftime("%H:%M") %> - <%= hours.close_time.strftime("%H:%M") %><br>
+        <% end %> </p>
+
       </div>
       <!-- Grid column -->
 
@@ -68,15 +46,16 @@
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold"">contact</h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p><i class="fas fa-home mr-3"></i><%= business_info.street %></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= business_info.city %>, <%= business_info.state %> <%= business_info.zipcode %></p>
-        <p><i class="fas fa-envelope mr-3"></i><a href="mailto:<%= business_info.email %>"> <%= business_info.email %></a></p>
-        <p><i class="fas fa-phone mr-3"></i> <%= business_info.phone %></p>
+        <p><i class="fas fa-home mr-3"></i><%= @business.street %></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @business.city %>, <%= @business.state %> <%= @business.zipcode %></p>
+        <p><i class="fas fa-envelope mr-3"></i><a href="mailto:<%= business_info.email %>"> <%= @business.email %></a></p>
+        <p><i class="fas fa-phone mr-3"></i> <%= @business.phone %></p>
       </div>
       <!-- Grid column -->
     </div>
     <!-- Grid row -->
   </div>
+  <% end %>
   <!------------ Social buttons ------------>
   <div id="social" style="background-color: #2a2d31;">
     <div class="container">
@@ -84,21 +63,21 @@
       <div class="py-4">
         
         <ul class="list-unstyled list-inline text-center">
-          <% if business_info.facebook.present? %>
+          <% if @business.facebook.present? %>
           <li class="list-inline-item">
             <a href="<%= @business.facebook %>" class="btn-floating btn-fb mx-1" target="_blank">
               <i class="fab fa-facebook fa-3x"> </i>
             </a>
           </li>
           <% end %>
-          <% if business_info.instagram.present? %>
+          <% if @business.instagram.present? %>
           <li class="list-inline-item">
             <a href="<%= @business.instagram %>" class="btn-floating btn-tw mx-1" target="_blank">
               <i class="fab fa-instagram fa-3x"> </i>
             </a>
           </li>
           <% end %>
-          <% if business_info.youtube.present? %>
+          <% if @business.youtube.present? %>
           <li class="list-inline-item">
             <a href="<%= @business.youtube %>" class="btn-floating btn-li mx-1">
               <i class="fab fa-youtube fa-3x"> </i>
@@ -110,7 +89,7 @@
     </div>
     <!-- Copyright -->
     <div class="footer-copyright text-center"><small>© 2019 Copyright:
-      <a href="#"> <%= business_info.email if business_info.email.present? %></a></small>
+      <a href="#"> <%= @business.email if @business.email.present? %></a></small>
     </div>
   </div>
 </footer>

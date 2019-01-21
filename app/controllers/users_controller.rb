@@ -40,10 +40,11 @@ class UsersController < Clearance::UsersController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      @business = Business.first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :first_name, :last_name, :birthday, :password, :password_confirmation, :bio, :avatar, :phone_number, :title, :remove_avatar, :facebook, :instagram, :linkedin, :title_id)
+      params.require(:user).permit(:email, :first_name, :last_name, :hashtag, :birthday, :password, :password_confirmation, :bio, :avatar, :phone_number, :title, :remove_avatar, :facebook, :instagram, :linkedin, :title_id)
     end
   end

@@ -14,6 +14,8 @@ class CreateBusinesses < ActiveRecord::Migration[5.2]
       t.string :youtube
       t.string :twitter
       t.string :logo
+      t.string :hashtag
+      t.string :bio
       t.string :operator
 
       t.timestamps

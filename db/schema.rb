@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_01_19_200000) do
     t.string "youtube"
     t.string "twitter"
     t.string "logo"
+    t.string "hashtag"
+    t.string "bio"
     t.string "operator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,10 +83,8 @@ ActiveRecord::Schema.define(version: 2019_01_19_200000) do
 
   create_table "titles", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_titles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,17 +96,21 @@ ActiveRecord::Schema.define(version: 2019_01_19_200000) do
     t.date "birthday"
     t.string "phone_number"
     t.integer "role", default: 0
+    t.bigint "title_id"
     t.string "instagram"
     t.string "facebook"
     t.string "linkedin"
     t.string "avatar"
+    t.string "hashtag"
     t.text "bio"
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
+    t.index ["title_id"], name: "index_users_on_title_id"
   end
 
   add_foreign_key "business_hours", "businesses"
+  add_foreign_key "users", "titles"
 end

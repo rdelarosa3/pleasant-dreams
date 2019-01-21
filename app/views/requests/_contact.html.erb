@@ -6,15 +6,15 @@
     <div class="row">
       <div class="col-md-6 mt-4">
         <h4>ADDRESS</h4><br>
-        <h6><%= business_info.name %></h6>
-        <h6><%= business_info.street %>, <%= business_info.city %></h6>
-        <h6><%= business_info.state %> <%= business_info.zipcode %>, <%= business_info.country %></h6>
+        <h6><%= @business.name %></h6>
+        <h6><%= @business.street %>, <%= @business.city %></h6>
+        <h6><%= @business.state %> <%= @business.zipcode %>, <%= @business.country %></h6>
         <br><br>
         <h4>PHONE NUMBER</h4><br>
-        <h6>Phone: <%= business_info.phone %></h6>
+        <h6>Phone: <%= @business.phone %></h6>
         <br><br>
         <h4>EMAIL ADDRESS</h4><br>
-        <span><a href="mailto:<%= business_info.email %>"><h6><%= business_info.email %></h6></a></span>
+        <span><a href="mailto:<%= @business.email %>"><h6><%= @business.email %></h6></a></span>
       </div>
       <div class="col-md-6 mt-4">
         <h4 class="">Business Hours</h4>
@@ -27,7 +27,7 @@
             </tr>
           </thead>
           <tbody>
-            <% business_info.business_hours.each do |hours| %>
+            <% @business.business_hours.each do |hours| %>
               <tr>
                 <td><%= hours.day %></td>
                 <td><%= hours.open_time.strftime("%H:%M") %> - <%= hours.close_time.strftime("%H:%M") %></td>
@@ -50,21 +50,21 @@
       <div class="container">
         <div class="py-4">
           <ul class="list-unstyled list-inline text-center">
-            <% if business_info.facebook.present? %>
+            <% if @business.facebook.present? %>
             <li class="list-inline-item">
               <a href="<%= @business.facebook %>" class="btn-floating btn-fb mx-1" target="_blank">
                 <i class="fab fa-facebook fa-3x"> </i>
               </a>
             </li>
             <% end %>
-            <% if business_info.instagram.present? %>
+            <% if @business.instagram.present? %>
             <li class="list-inline-item">
               <a href="<%= @business.instagram %>" class="btn-floating btn-tw mx-1" target="_blank">
                 <i class="fab fa-instagram fa-3x"> </i>
               </a>
             </li>
             <% end %>
-            <% if business_info.youtube.present? %>
+            <% if @business.youtube.present? %>
             <li class="list-inline-item">
               <a href="<%= @business.youtube %>" class="btn-floating btn-li mx-1">
                 <i class="fab fa-youtube fa-3x"> </i>

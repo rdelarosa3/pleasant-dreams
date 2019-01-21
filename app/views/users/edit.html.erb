@@ -78,14 +78,16 @@
 					<%= f.input :first_name, label: 'First Name', error: 'First name is mandatory, please specify one' %>
 					<%= f.input :last_name, label: 'Last Name', error: 'Last name is mandatory, please specify one', hint: 'Your public profile only shows your first name.' %>
 					<% if @user.admin? || @user.operator? %>
-					<%= f.input :title, label: "Current Title" %>
+					<%= f.association :title, label: "Current Title" %>
+					<%= f.input :bio, :input_html => {:rows => 5}, label: "Artist Bio" %>
+					<%= f.input :hashtag, label: "Gallery Keyword", hint: 'Enter a unique Instagram hashtag for your gallery.' %>
 					<%= f.input :facebook, label: 'Facebook Page', hint: 'Valid links start with http: or https:' %>
 					<%= f.input :instagram, label: 'Instagram Page', hint: 'Valid links start with http: or https:' %>
 					<%= f.input :linkedin, label: 'Linkedin Page', hint: 'Valid links start with http: or https:' %>
 					<% end %>
-					<%= f.input :birthday, as: :date, start_year: Date.today.year - 16,
+<!-- 					<%= f.input :birthday, as: :date, start_year: Date.today.year - 16,
 					                  end_year: Date.today.year - 90, discard_day: false,
-					                  order: [:year, :month, :day], hint: "The magical day you were dropped from the sky by a stork. We use this data for analysis and never share it with other users." %>
+					                  order: [:year, :month, :day], hint: "The magical day you were dropped from the sky by a stork. We use this data for analysis and never share it with other users." %> -->
 					<%= f.input :phone_number, label: 'Telephone Number', error: 'Please help us able to contact you for future reservations. Phone Number requires an area code.', hint: 'We won’t share your phone number this is just to help us get in contact with you.' %>
 					<!-- f.input :email, placeholder: 'user@domain.com', hint: 'We won’t share your private email address.'  -->
 					 <button class="btn btn-lg btn-danger" id="secondSubmit" style="display: none;">Save</button>
@@ -116,6 +118,7 @@ function readURL(input) {
 // if avatar image file is selected call preview function and shows avatar button
 $("#user_avatar").on('change', function() {
      $("#avatarButton").show();
+     $('#image_upload_preview').css({'filter': 'invert(0%)'});
      readURL(this);
 });
 
