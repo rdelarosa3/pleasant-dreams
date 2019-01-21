@@ -331,7 +331,7 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
     padding: 0 !important;
     transition: .6s ease-in-out !important;
 }
-@media (max-width: 800px){
+@media (max-width: 800px) or {
   #bookingContainer {
     display: none;
     max-height: 100% !important;
@@ -374,9 +374,28 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
 and (orientation : landscape) {
- #bookingContainer {
-  margin-bottom: 50px!important;
- }
+  #bookingContainer {
+    display: none;
+    max-height: 100% !important;
+    border-radius: 0 0 0 0 !important;
+    transition: all .6s ease-in-out,width .2s ease-in-out,top .4s ease-in-out !important;
+    background: #fff !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    top: 0 !important; 
+    width: 100% !important;
+    height: 100% !important;
+    color: #000 !important;
+    line-height: 2 !important;
+    text-align: left !important;
+    z-index: 1031 !important;
+    zoom: 0 !important;
+    transition: .3s ease-in-out !important;
+    -webkit-font-smoothing: antialiased !important;
+    overflow: auto
+    /*margin-bottom: 40px!important;*/
+}
 }
 
 @media (min-width: 800px){
@@ -400,7 +419,7 @@ and (orientation : landscape) {
     zoom: 0 !important;
     transition: .3s ease-in-out !important;
     -webkit-font-smoothing: antialiased !important;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 .booking-top-bar {
   padding-bottom: 50px;
@@ -448,8 +467,6 @@ and (orientation : landscape) {
   z-index: 2147483648 !important;
 }
 
-
-
 .logos{
   width:210px;
   height: 66.56px!important;
@@ -489,30 +506,12 @@ and (orientation : landscape) {
 }
 
 
-.scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-}
-
-/*.instagram-thumbs{
-  width:300px;
-  height: 300px;
-  border-radius: 10px;
-  animation: move 60s linear infinite;
-}*/
-
 @-webkit-keyframes move {
 100% { 
     transform: translateX(-1200%);  
   }
 }
 
-/*.instagram-thumbs:hover {
-  transition: .5s ease;
-  opacity: 0.6;
-  background-color:black;
-}*/
 
 #gallery, #services, #about h2, #team h2, #team h4{
   color:#dcdcdc!important;
