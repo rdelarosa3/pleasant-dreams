@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+
+<div class='container mt-100'>
+  <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -70,5 +72,5 @@
   <%= @business.operator %>
 </p>
 
-<%= link_to 'Edit', edit_business_path(@business) %> |
-<%= link_to 'Back', businesses_path %>
+<%= link_to 'Edit', edit_business_path(@business), class: 'btn btn-danger' %>   
+</div>

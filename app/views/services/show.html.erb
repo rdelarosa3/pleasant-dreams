@@ -1,0 +1,31 @@
+
+
+<div class="container mt-200">
+	<h2 class="text-center"> Service </h2>
+	<div class="row text-center">
+		<div class='col-md-3'>
+		</div>
+			<div class="col-md-6">
+				<p id="notice"><%= notice %></p>
+				 <strong>Name:</strong>
+				  <%= @service.name %>
+				</p>
+
+				<p>
+				  <strong>Price:</strong>
+				  <%= @service.price %>
+				</p>
+
+				<p>
+				  <strong>Up To:</strong>
+				  <%= @service.range %>
+				</p>
+
+				<%= link_to 'Edit', edit_service_path(@service), class: 'btn btn-danger' %>
+				<%= link_to 'Back', services_path, class: 'btn btn-secondary' %>
+			</div>
+		<div class='col-md-3'>
+		</div>
+
+	</div>
+</div>

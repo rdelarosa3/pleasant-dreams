@@ -5,6 +5,7 @@ class CreateBusinessHours < ActiveRecord::Migration[5.2]
       t.integer :day
       t.time :open_time
       t.time :close_time
+      t.boolean :closed
 
       t.timestamps
     end

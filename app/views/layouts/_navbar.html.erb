@@ -142,6 +142,12 @@ and (orientation : portrait) {
     <%= link_to "Pleasant Dreams Co.", root_path, class: "navbar-brand  js-scroll-trigger font-weight-bold " %>
     <button class="navbar-toggler navbar-toggler-right mr-2" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars" style="color: #c74735;"></i>
+    <% if signed_in? %>
+      <% if pending_requests > 0 && (current_user.admin? || current_user.operator?) %>
+        
+        <i class="fas fa-bell ring" style="color:red;font-size: 1rem;"></i>
+      <% end %>
+      <% end %>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -200,7 +206,7 @@ and (orientation : portrait) {
             <% if current_user.admin? || current_user.operator? %>
               <div class="dropdown-divider"></div>
               <span>Admin</span>
-              <%= link_to "requests", requests_path, class: "nav-item nav-link" %>
+              <%= link_to "Messages", requests_path, class: "nav-item nav-link" %>
               <%= link_to "New User", sign_up_path, class: "nav-item nav-link" %>
               <%= link_to "Business Details", edit_business_path(@business.id), class: "nav-item nav-link" %>
 
@@ -208,6 +214,11 @@ and (orientation : portrait) {
             <div class="dropdown-divider"></div>
             <%= link_to 'Sign out', sign_out_path, class: "nav-link nav-item", method: :delete %>
           </div>
+                   <% if pending_requests > 0 && (current_user.admin? || current_user.operator?) %>
+              <span class="badge badge-notify">
+              </span> 
+          <% end %>
+
 
           </li>
 

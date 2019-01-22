@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration[5.2]
       t.string :phone_number
       t.string :subject
       t.text :message
+      t.boolean :reviewed, default: false
 
       t.timestamps
     end

@@ -206,78 +206,51 @@ table.bt tbody td:last-of-type .bt-content {
 
   <!-- Search bars -->
 <center><p id="notice"><%= notice %></p></center>
-<div class="container mt-100 ">
-  <h2 class="text-center text-uppercase" style="font-weight:700;">Reservations</h2>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card shadow">
-        <div class=""> 
-          <%= simple_form_for :reservation, wrapper: :inline_form, html: { class: 'form-inline' }, method: :get do |f| %>
-          <table class="table-responsive" id="tableForm">
-            <thead>
-              <tr class="">
-                <th>Stylist</th>
-                <th>Service</th>
-                <th>Date</th>
-                <th>Submit</th>
-              </tr>
-            </thead>
-            <tbody>
 
-              <td>
-              <%= f.input :stylist, :collection => @stylist.order(:first_name), label_method: :fullname, value_method: :id, label: false, class: 'form-control mt-1 mb-2' %>
-              </td>
-              <td>
-              <%= f.input :service, :as => :grouped_select, :collection => ServiceType.order(:name), :group_method => :services, label: true, class: 'form-control mt-1 mb-2' %>
-              </td>
-              <td>
-              <%= f.text_field :date_on, label: false, type: 'date', min: Date.today.prev_month(3), max: Date.today.next_month(3), class: 'form-control', style: "height: 30px;"%>
-              </td>
-              <td>
-               <%= f.button :submit, 'Submit', name: :nil, class: "btn btn-danger m-1", style: "height: 36px;" %>
-             </td>
-           </tbody>
-          </table>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="container">
+<div class="container mt-100 mb-5">
   <div class="card shadow p-2">
     <table class="table-responsive" id="example1">
       <thead>
         <tr style="background: #17a2b8;">
-          <th>Client</th>
-          <th>Service</th>
-          <th>Stylist</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Notes</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Subject</th>
+          <th>Message</th>
           <th>Status</th>
-          <th>Approve</th>
-          <th>Cancel</th>
+          <th>View</th>
           <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
 
       <tbody>
-        <% @reservations.each do |appointment| %>
+        <% if @requests %>
+        <%  @requests.each do |appointment|%>
           <tr>
-            <td><span><%= link_to appointment.user.fullname, appointment.user %></span></td>
-            <td><%= appointment.service.name %></td>
-            <td class="current-stylist" id='currentStylist<%=appointment.id%>'><%= appointment.stylist.first_name %></td>
-            <td><%= appointment.reservation_date %></td>
-            <td><%= appointment.reservation_time.strftime("%H:%M") %></td>
-            <td><%= appointment.notes %></td>
-            <td><% if appointment.pending? %><span class='text-warning font-weight-bold text-uppercase blink'><% else %><span class='text-info font-weight-bold text-uppercase'><%end%><%= appointment.status %></span>
+            <td><span><%= appointment.first_name %> <%= appointment.last_name %></span></td>
+            <td><%= appointment.email %></td>
+            <td><%= appointment.phone_number %></td>
+            <td><%= appointment.subject %></td>
+            <td><%= appointment.message %></td>
+            <td><% if !appointment.reviewed %><span class='text-warning font-weight-bold text-uppercase blink'>NEW </span><% else %><span class='text-info font-weight-bold text-uppercase'>Reviewed</span><%end%>
             </td>
-            <td><center><%= link_to '', appointment, method: :status_change, data: { confirm: 'Are you sure?' }, class: "text-info fas fa-check-circle fa-2x" %></center></td>  
-            <td><center><%= link_to '', appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger fas fa-minus-circle fa-2x" %></center></td>
-            <td><center><%= link_to '', edit_reservation_path(appointment) , class: "fas fa-pencil-alt" %></center></td>
+            <td><%= link_to 'Show', appointment %></td>
+            
+            <td>
+              <center>
+                <%= link_to '', edit_request_path(appointment) , class: "fas fa-pencil-alt" %>
+              </center>
+            </td>
+            <td>
+              <center>
+              <%= link_to '', appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger fas fa-minus-circle fa-2x" %>
+              </center>
+            </td>
+            
           </tr>
+        <% end %>
         <% end %>
       </tbody>
     </table>
@@ -291,12 +264,12 @@ $(document).ready(function() {
 } );
 
 $(document).ready(function() {
-  $('select#reservation_stylist').select2({
+  $('select#request_stylist').select2({
     placeholder: "Choose a stylist",
     allowClear: false,
     width: 'resolve'
   });
-  $('select#reservation_service').select2({
+  $('select#request_service').select2({
     placeholder: "Choose a service",
     allowClear: false
   });

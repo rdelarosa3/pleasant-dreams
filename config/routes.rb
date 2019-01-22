@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :requests
   resources :businesses
   resources :business_hours
+  resources :services
+  resources :titles
   get '/contact_us' => 'requests#new', as: 'contact'
   get '/artists/:id' => 'users#show', as: 'artista'
   # this is the end of my routes

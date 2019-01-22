@@ -1,8 +1,8 @@
 class Business < ApplicationRecord
  mount_uploader :logo, LogoUploader
  has_many :business_hours
- validates :name, :phone, :zipcode, :operator, :street, :city, :state, :country, :email, presence: true
- validate :only_one
+ validates :name, :phone, :zipcode, :operator, :street, :city, :state, :email, presence: true
+ validate :only_one, on: :create
 
   private
 

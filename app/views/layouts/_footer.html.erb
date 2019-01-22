@@ -15,7 +15,7 @@
     <!-- Grid row -->
     <div class="row mt-3 mb-3 dark-grey-text">
       <!-- Grid column -->
-      <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+      <div class="col-md-4 col-lg-4 col-xl-4 mb-4 mx-auto">
         <!-- Content -->
         <h6 class="text-uppercase font-weight-bold"><%= @business.name %></h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
@@ -27,7 +27,7 @@
 
       </div>
       <!-- Grid column -->
-      <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
+      <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
         <!-- Links -->
         <center>
         <h6 class="text-uppercase font-weight-bold">Business Hours</h6>
@@ -35,14 +35,16 @@
 
         <p>
         <% @business.business_hours.each do |hours| %>
-        <%= hours.day %> -  <%= hours.open_time.strftime("%H:%M") %> - <%= hours.close_time.strftime("%H:%M") %><br>
+        <%= hours.day %> - <% if hours.closed? %> Closed <% else %> <%= hours.open_time.strftime("%H:%M") %> - <%= hours.close_time.strftime("%H:%M") %> <% end %><br>
         <% end %> </p>
 
       </div>
       <!-- Grid column -->
+      <div class=col-md-1>
+      </div>
 
       <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold"">contact</h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">

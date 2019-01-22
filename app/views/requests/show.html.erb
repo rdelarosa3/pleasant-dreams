@@ -1,0 +1,22 @@
+<div class="container mt-100 mb-5">
+  <center class='mb-5'><h1><%= @request.first_name%>'s Request</h1></center>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 shadow">	
+    
+            <p>Reviewed: <% if @request.reviewed %> Yes <% else %> No <%end %></p>
+            <p>Name:<span><%= @request.first_name%> <%= @request.last_name %></span></p>
+            <p>Email: <%= @request.email %></p>
+            <p>Phone: <%= @request.phone_number %></p>
+            <p>Subject: <%= @request.subject %></p>
+            <p>Message: <%= @request.message %></p>
+            
+ 
+          
+    
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>

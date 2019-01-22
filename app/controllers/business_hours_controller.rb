@@ -1,6 +1,7 @@
 class BusinessHoursController < ApplicationController
   before_action :set_business_hour, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:show, :edit, :update, :destroy, :new, :index]
+  before_action :set_business, only: [:show, :edit, :update, :destroy, :index, :new]
   
   def new
     @business_hour = BusinessHour.new
@@ -11,7 +12,8 @@ class BusinessHoursController < ApplicationController
   def index
     @business_hours = BusinessHour.all
     @business = Business.first
-  end  
+  end 
+
   def create
     @business_hour = BusinessHour.new(business_hour_params)
 
@@ -47,16 +49,26 @@ class BusinessHoursController < ApplicationController
   end
 
   private
+    # to keep users other than admin from accessing
     def authorize
-      redirect_to root_path, alert: 'You must be admin to access this page.' if current_user.nil? || !current_user.admin?
-    end  
+      if signed_in?
+        unless current_user.admin? || current_user.operator?
+          redirect_to root_path, alert: 'You must be admin to access this page.' 
+        end
+      else
+        redirect_to root_path
+      end
+    end 
     # Use callbacks to share common setup or constraints between actions.
     def set_business_hour
       @business_hour = BusinessHour.find(params[:id])
     end
 
+        def set_business
+      @business = Business.first
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_hour_params
-      params.require(:business_hour).permit(:business_id, :day, :open_time, :close_time)
+      params.require(:business_hour).permit(:business_id, :day, :open_time, :close_time, :closed)
     end
 end

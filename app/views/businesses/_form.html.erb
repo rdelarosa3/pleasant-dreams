@@ -1,6 +1,16 @@
 <div class="container mt-100">
   <div class="row">
-    <div class="col-md-12 mb-4" id="editDiv">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow align-items-center pb-4">
+        <h4 class="text-center mt-4">Links</h4><br>
+        <p><%= link_to 'Business Hours', business_hours_path %></p>
+        <p><%= link_to 'Services', services_path %></p>
+        <p><%= link_to 'Staff Titles', titles_path %></p>
+        <p><%= link_to 'Register Users', sign_up_path %></p>
+        <p><%= link_to 'Messages', requests_path %></p>
+      </div>
+    </div>
+    <div class="col-md-8 mb-4" id="editDiv">
       <div class="card shadow">
         <h4 class="text-center mt-4">Company Info</h4> 
         <center><p id="notice"><%= notice %></p></center>
@@ -44,6 +54,9 @@
               <%= f.input :twitter, label: 'Twitter Page', hint: 'Valid links start with http: or https:' %>
               <%= f.input :hashtag, label: "Gallery Keyword", hint: 'Enter a unique Instagram hashtag for your gallery.' %>
               <%= f.input :bio, :input_html => {:rows => 5}, label: "Business Bio", hint: 'Write a brief summary of your Business to be seen on landing page.' %>
+              <%= f.input :tattoo, :input_html => {:rows => 5}, label: "Tattoos Summary", hint: 'Write a brief summary of tattoos service to be seen on landing page.' %>
+              <%= f.input :piercing, :input_html => {:rows => 5}, label: "Piercings Summary", hint: 'Write a brief summary of piercings service to be seen on landing page.' %>
+              <%= f.input :product, :input_html => {:rows => 5}, label: "Products Summary", hint: 'Write a brief summary of products to be seen on landing page.' %>
             </div>
 
             <div class="form-actions">

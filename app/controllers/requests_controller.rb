@@ -1,39 +1,15 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :authorize, only: [:show, :edit, :update, :destroy, :index]
+  before_action :set_business, only: [:show, :edit, :update, :destroy, :index, :new]
   # include UsersHelper
 
   def index
-    # checks if user admin or logged in
-    # if params[:request]
-      
-    #   @requests = request.includes(:user).where(nil).all
-    #   # if params[:request][:date_start] != "" || params[:request][:date_end] != ""
-    #   #   @requests = @requests.date_range(params[:request][:date_start],params[:request][:date_end]).all 
-    #   # end
-    #   if params[:request][:date_on] != "" 
-    #     @requests = @requests.on_date(params[:request][:date_on]).all 
-    #   end
-    #   if params[:request][:stylist] != ""
-    #     @requests = @requests.stylist_name(params[:request][:stylist]).all 
-    #   end
-    #   if params[:request][:service] != ""
-    #     @requests = @requests.service_name(params[:request][:service]).all 
-    #   end
-    #   @requests.order('status = 0 DESC').order(request_date: :desc ).order(request_time: :desc )
-    #   respond_to do |format|    
-    #     format.html {render :index }
-    #     format.js
-    #   end
-    # else
-    #   if request.all.where(status: 'pending').any?
-    #     @requests = request.all.where(status: 'pending')
-    #   else  
-    #   @requests = request.all.order(status: :desc).order(request_date: :desc ).order(request_time: :desc )
-    #   end
-    # end
+        @requests = Request.all.order(created_at: :desc ).order(updated_at: :desc )
   end
-
+  
+  def show
+  end
 
   def new
     @request = Request.new
@@ -51,7 +27,7 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @request.save # format.js { render :file => "/layouts/application.js"}
         flash.now.notice = "Inquiry request submitted."
-        format.html { redirect_to current_user, notice: 'Inquiry request submitted.' }
+        format.html { redirect_to root_path, notice: 'Inquiry request submitted.' }
         format.json { render :show, status: :created, location: @request }
 
       else
@@ -68,11 +44,11 @@ class RequestsController < ApplicationController
 
   def update
     unless current_user.operator? || current_user.admin?
-      redirect_to new_request_path, notice: 'request for current service already exists.'
+      redirect_to new_request_path, notice: 'Request for current service already exists.'
     end
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to requests_url, notice: 'request was successfully updated.' }
+        format.html { redirect_to requests_url, notice: 'Request was successfully updated.' }
         # format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }
@@ -103,11 +79,13 @@ class RequestsController < ApplicationController
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_request
-      @request = request.find(params[:id])
+      @request = Request.find(params[:id])
     end
-
+    def set_business
+      @business = Business.first
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:subject, :email, :first_name, :last_name, :phone_number, :message)
+      params.require(:request).permit(:subject, :email, :first_name, :last_name, :phone_number, :message, :reviewed)
     end
 end

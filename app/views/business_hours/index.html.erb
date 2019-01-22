@@ -1,33 +1,40 @@
-<p id="notice"><%= notice %></p>
+<style>
+  table a{
+    color:white;
+  }
+  body {
+    background-color: #343a406e;
+  }
+</style>
+<div class="container mt-100">
+  <center><h1 class="text-center font-weight-bold">Hours of Operation</h1></center>
+  <div class="row">
+      
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Open time</th>
+          <th>Close time</th>
+          <th>Closed?</th>
+          <th colspan="2"> View | Edit </th>
+        </tr>
+      </thead>
 
-<h1>Business Hours</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Business</th>
-      <th>Day</th>
-      <th>Open time</th>
-      <th>Close time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @business_hours.each do |business_hour| %>
-      <tr>
-        <td><%= business_hour.business %></td>
-        <td><%= business_hour.day %></td>
-        <td><%= business_hour.open_time %></td>
-        <td><%= business_hour.close_time %></td>
-        <td><%= link_to 'Show', business_hour %></td>
-        <td><%= link_to 'Edit', edit_business_hour_path(business_hour) %></td>
-        <td><%= link_to 'Destroy', business_hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Business Hour', new_business_hour_path %>
+      <tbody>
+        <% @business_hours.each do |business_hour| %>
+          <tr>
+            <td><%= business_hour.day %></td>
+            <td><%= business_hour.open_time.strftime("%H:%M") %></td>
+            <td><%= business_hour.close_time.strftime("%H:%M") %></td>
+            <td><% if business_hour.closed %> Yes <% else %> No <% end %></td>
+            <td><%= link_to 'Show', business_hour %></td>
+            <td><%= link_to 'Edit', edit_business_hour_path(business_hour) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <br>  
+  </div>
+</div>

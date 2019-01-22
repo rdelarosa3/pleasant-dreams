@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_19_200000) do
+ActiveRecord::Schema.define(version: 2019_01_20_120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_200000) do
     t.integer "day"
     t.time "open_time"
     t.time "close_time"
+    t.boolean "closed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["business_id"], name: "index_business_hours_on_business_id"
@@ -50,7 +51,10 @@ ActiveRecord::Schema.define(version: 2019_01_19_200000) do
     t.string "twitter"
     t.string "logo"
     t.string "hashtag"
-    t.string "bio"
+    t.text "bio"
+    t.text "tattoo"
+    t.text "piercing"
+    t.text "product"
     t.string "operator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,6 +81,16 @@ ActiveRecord::Schema.define(version: 2019_01_19_200000) do
     t.string "phone_number"
     t.string "subject"
     t.text "message"
+    t.boolean "reviewed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.integer "range"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,7 +107,6 @@ ActiveRecord::Schema.define(version: 2019_01_19_200000) do
     t.string "last_name"
     t.string "first_name"
     t.string "email", null: false
-    t.date "birthday"
     t.string "phone_number"
     t.integer "role", default: 0
     t.bigint "title_id"

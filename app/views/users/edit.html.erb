@@ -87,9 +87,6 @@
 					<%= f.input :instagram, label: 'Instagram Page', hint: 'Valid links start with http: or https:' %>
 					<%= f.input :linkedin, label: 'Linkedin Page', hint: 'Valid links start with http: or https:' %>
 
-<!-- 					<%= f.input :birthday, as: :date, start_year: Date.today.year - 16,
-					                  end_year: Date.today.year - 90, discard_day: false,
-					                  order: [:year, :month, :day], hint: "The magical day you were dropped from the sky by a stork. We use this data for analysis and never share it with other users." %> -->
 					<%= f.input :phone_number, label: 'Telephone Number', error: 'Please help us able to contact you for future reservations. Phone Number requires an area code.', hint: 'We won’t share your phone number this is just to help us get in contact with you.' %>
 					<!-- f.input :email, placeholder: 'user@domain.com', hint: 'We won’t share your private email address.'  -->
 					 <button class="btn btn-lg btn-danger" id="secondSubmit" style="display: none;">Save</button>

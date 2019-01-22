@@ -15,7 +15,7 @@
         <i class="fa-stack-1x fa-inverse"><%= image_tag("gun.png") %></i>
       </span> 
       <h4 class="service-heading">Tattoos</h4>
-      <p class="">From grayscale to full color, Reworks and Cover-ups, we do it all. Express yourself with a custom tattoo. </p>
+      <p class=""><%= @business.tattoo %> </p>
     </div>
 
     <div class="col-md-4">
@@ -24,7 +24,7 @@
         <i class="fa-stack-1x fa-inverse"><%= image_tag("anchor.png") %></i>
       </span>
       <h4 class="service-heading">Piercing</h4>
-      <p class="">Point to it on your body, we can pierce it. Our qualified team takes your needs and our standards seriously.</p>
+      <p class=""><%= @business.piercing %></p>
     </div>
 
     <div class="col-md-4">
@@ -33,7 +33,7 @@
         <i class="fa-stack-1x fa-inverse"><%= image_tag("rose.png") %></i>
       </span> 
       <h4 class="service-heading">Supplies</h4>
-      <p class="">Tattoo Supplies, Tattoo Needles, Tattoo Equipment, Tattoo Tubes, Tattoo Inks,Piercing Supplies, and more.</p>
+      <p class=""><%= @business.product %></p>
     </div>
   </div>
   <!-- !services image logos -->
@@ -58,7 +58,7 @@
         <button class="close mr-auto pt-1 pr-4"  data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <!-- render :partial => "service_types/services" %> -->
+        <%= render :partial => "services/services" %>
       </div>
     </div>
   </div>

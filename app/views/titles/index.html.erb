@@ -1,0 +1,37 @@
+<style>
+  table a{
+    color:white;
+  }
+  body {
+    background-color: #343a406e;
+  }
+</style>
+<div class="container mt-100">
+  <center><h1 class="text-center font-weight-bold">Available Titles</h1></center>
+  <div class="row">
+      
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th> View</th>
+          <th> Edit </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @titles.each do |title| %>
+          <tr>
+            <td><%= title.name %></td>
+            <td><%= link_to 'Show', title %></td>
+            <td><%= link_to 'Edit', edit_title_path(title) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <br>  
+     <center> <%= link_to 'New Title', new_title_path, class: 'btn btn-danger' %></center>
+  </div>
+
+</div>
