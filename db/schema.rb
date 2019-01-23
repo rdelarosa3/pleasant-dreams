@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_01_20_120000) do
     t.string "state"
     t.string "country"
     t.string "phone"
+    t.string "messenger"
     t.integer "zipcode"
     t.string "email"
     t.string "facebook"

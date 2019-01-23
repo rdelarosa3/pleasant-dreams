@@ -230,7 +230,7 @@ table.bt tbody td:last-of-type .bt-content {
         <%  @requests.each do |appointment|%>
           <tr>
             <td><span><%= appointment.first_name %> <%= appointment.last_name %></span></td>
-            <td><%= appointment.email %></td>
+            <td><a href="mailto:<%= appointment.email %>"><%= appointment.email %></a></td>
             <td><%= appointment.phone_number %></td>
             <td><%= appointment.subject %></td>
             <td><%= appointment.message %></td>

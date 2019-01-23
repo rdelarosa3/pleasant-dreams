@@ -6,6 +6,7 @@
         <p><%= link_to 'Business Hours', business_hours_path %></p>
         <p><%= link_to 'Services', services_path %></p>
         <p><%= link_to 'Staff Titles', titles_path %></p>
+        <p><%= link_to 'Current Staff', users_path %></p>
         <p><%= link_to 'Register Users', sign_up_path %></p>
         <p><%= link_to 'Messages', requests_path %></p>
       </div>
@@ -48,6 +49,8 @@
               <%= f.input :zipcode, label: 'Zipcode' %>
               </div>
               </div>
+
+              <%= f.input :messenger, label: 'Facebook Messenger ID',hint: 'This is your id location only enter the user id https://www.facebook.com/YOURUSERID' %>
               <%= f.input :facebook, label: 'Facebook Page', hint: 'Valid links start with http: or https:' %>
               <%= f.input :instagram, label: 'Instagram Page', hint: 'Valid links start with http: or https:' %>
               <%= f.input :youtube, label: 'Youtube Page', hint: 'Valid links start with http: or https:' %>

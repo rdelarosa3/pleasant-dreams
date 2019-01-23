@@ -14,7 +14,8 @@ ActiveRecord::Base.transaction do
       business['city'] = "San Antonio"
       business['state'] = "TX"
       business['country'] = "USA"
-      business['phone'] = "+1 (210) 923-1894"
+      business['phone'] = "+1(210)923-1894"
+      business['messenger'] = 'PleasantDreamsCO'
       business['zipcode'] = 78214
       business['email'] = "info@pleasant-dreams.com"
       business['operator'] = "Richard Lopez"

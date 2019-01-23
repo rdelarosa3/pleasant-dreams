@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-6 mt-4">
         <h4>ADDRESS</h4>
-        <p><%= link_to "(Google Map)", new_request_path(anchor: "googleMap")%></p><br>
+        <p><%= link_to "(Google Map)", new_request_path(anchor: "googleMap"), class:"fas fa-map-marked-alt"%></p><br>
         <h6><%= @business.name %></h6>
         <h6><%= @business.street %>, <%= @business.city %></h6>
         <h6><%= @business.state %> <%= @business.zipcode %>, <%= @business.country %></h6>

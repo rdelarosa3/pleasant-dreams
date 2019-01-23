@@ -1,8 +1,8 @@
 class UsersController < Clearance::UsersController
   before_action :set_user, only: [:show, :edit, :update, :destroy,]
-  before_action :set_business, only: [:create,:show, :edit, :update, :destroy, :registration, :create, :new_staff]
+  before_action :set_business, only: [:index, :create,:show, :edit, :update, :destroy, :registration, :create, :new_staff]
   before_action :validate_user, only: [:edit, :update, :destroy]
-  before_action :is_admin, only: [:new, :registration, :create, :new_staff]
+  before_action :is_admin, only: [:new, :registration, :create, :new_staff, :index]
   # before_action :redirect_signed_in_users, except:[:new, :create, :registration]
   
     def create
@@ -26,6 +26,10 @@ class UsersController < Clearance::UsersController
       else
         redirect_to sign_up_path
       end
+    end
+
+    def index
+      @users = User.all
     end
 
     def update

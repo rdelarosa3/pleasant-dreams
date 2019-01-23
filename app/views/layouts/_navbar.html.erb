@@ -141,7 +141,7 @@ and (orientation : portrait) {
     <!-- navbar brand section and toggle section -->
     <%= link_to "Pleasant Dreams Co.", root_path, class: "navbar-brand  js-scroll-trigger font-weight-bold " %>
     <button class="navbar-toggler navbar-toggler-right mr-2" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-bars" style="color: #c74735;"></i>
+    <i class="fas fa-bars" style="color: white;"></i>
     <% if signed_in? %>
       <% if pending_requests > 0 && (current_user.admin? || current_user.operator?) %>
         
@@ -191,25 +191,22 @@ and (orientation : portrait) {
           <!-- user section  -->
           <% if current_user.avatar? %>
             <li class="nav-item user-avatar dropdown" id="userNotify"> 
-                <%= link_to image_tag(current_user.avatar_url,class: 'rounded-circle nav-img',width: '30', height: '30'), artista_path(current_user.id), class: "nav-link", id: "navbar-dropdown", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
+                <%= link_to image_tag(current_user.avatar_url,class: 'rounded-circle nav-img',width: '30', height: '30'), current_user, class: "nav-link", id: "navbar-dropdown", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             
           <% else %>
             <li class="nav-item dropdown" id="userNotify"> 
-                <%= link_to current_user.first_name, artista_path(current_user.id), class: "nav-link", id: "navbar-dropdown", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>        
+                <%= link_to current_user.first_name, current_user, class: "nav-link", id: "navbar-dropdown", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>        
           <% end %>
 
           <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
     
             <!-- <span> </span> -->
-            <%= link_to 'Profile', artista_path(current_user.id), class: "nav-item nav-link" %>
+            <%= link_to 'Profile', current_user, class: "nav-item nav-link" %>
             <%= link_to 'Sign out', sign_out_path, class: "nav-link nav-item", method: :delete %>
             <% if current_user.admin? || current_user.operator? %>
               <div class="dropdown-divider"></div>
-              <span>Admin</span>
 
-              
-              <%= link_to "New User", sign_up_path, class: "nav-item nav-link" %>
-              <%= link_to "Business Details", edit_business_path(@business.id), class: "nav-item nav-link" %>
+              <%= link_to "Business Links", edit_business_path(@business.id), class: "nav-item nav-link" %>
               <div class="dropdown-divider"></div>
               <%= link_to "Messages", requests_path, class: "nav-item nav-link" %>
             <% end %>

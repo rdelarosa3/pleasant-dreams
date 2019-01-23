@@ -1,7 +1,17 @@
 RailsAdmin.config do |config|
 
   ### Popular gems integration
+  ## == Clearance ==
+  config.parent_controller = "::ApplicationController"
 
+  config.authorize_with do |controller|
+    unless current_user && (current_user.admin? || current_user.operator?)
+      redirect_to(
+        main_app.root_path,
+        notice: "You are not permitted to view this page"
+      )
+    end
+  end
   ## == Devise ==
   # config.authenticate_with do
   #   warden.authenticate! scope: :user

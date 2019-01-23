@@ -365,9 +365,9 @@ a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'
     padding-bottom: 50px;
     height: 40px !important;
     border-radius: 0 !important;
-    background-color: #d11c13 !important;
+    /*background-color: #d11c13 !important;*/
     color: #ffffff !important;
-    border-color: #bb1a11 !important;
+    /*border-color: #bb1a11 !important;*/
   }
   .booking-launch-button .booking-button-text {
     font-size: 1.3em !important; 
@@ -412,16 +412,16 @@ and (orientation : landscape) {
   padding-bottom: 50px;
   height: 40px !important;
   border-radius: 10px 10px 0 0 !important;
-  background-color: #c74735 !important;
+  /*background-color: #c74735 !important;*/
   color: #ffffff !important;
-  border-color: #c74735 !important;
+  /*border-color: #c74735 !important;*/
 }
 }
 .booking-top-bar-text {
     color: #fff !important;
-    font-size: 1em !important;
-    font-weight: 700 !important;
-    letter-spacing: .2px !important;
+    font-size: 15px;
+    /* font-weight: 700 !important; */
+    letter-spacing: 0.5px !important;
     line-height: 52px !important;
     text-decoration: none !important;
     padding: 0 0 0 15px !important;
@@ -529,12 +529,13 @@ and (orientation : landscape) {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
 </style>
 
 
 
 <div class="uptop">
-  <center><h6 id="notice"><%= notice %></h6></center>
   <div class="overlay"></div>
     <video class="video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
       <source src="<%= asset_url 'tattoo.mp4'%>" type="video/mp4">
@@ -542,7 +543,8 @@ and (orientation : landscape) {
   <div class="container h-100">
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
-        <h1 class="display-3">Pleasant Dreams Co.</h1>
+        <span id="notice" style="color:red;"><em><%= notice %></em></span>
+        <h1 class="display-3"><%= @business.name %></h1>
         <h2>Tattoo & Art Studio</h2>
         <p class="text-white">WELCOME TO OUR WEBSITE!</p>
       </div>
@@ -574,7 +576,7 @@ and (orientation : landscape) {
 </button>
 <div id="bookingContainer" class="shadow">
   <div class="booking-top-bar" data-reactid=".0.5.0">
-    <div class="booking-top-bar-text"><%= @business.phone if @business.phone.present? %></div>
+    <div class="booking-top-bar-text"><%= @business.phone if @business.phone.present? %><i class="fas fa-phone"></i>&nbsp;&nbsp;<% if @business.messenger.present? %><a href="https://www.messenger.com/t/<%= @business.messenger%>/"  target="_blank" style='color:inherit;'>Message Us <i class="fab fa-facebook-messenger" style='color: #1191f3;'></i> </a><% end %></div>
     <div class="booking-top-bar-button" onclick="hideBooking()">
       <i class="fas fa-chevron-down"></i>
     </div>

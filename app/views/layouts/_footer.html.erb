@@ -50,7 +50,7 @@
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p><i class="fas fa-home mr-3"></i><%= @business.street %></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @business.city %>, <%= @business.state %> <%= @business.zipcode %></p>
-        <p><i class="fas fa-envelope mr-3"></i><a href="mailto:<%= business_info.email %>"> <%= @business.email %></a></p>
+        <p><i class="fas fa-envelope mr-3"></i><a href="mailto:<%= @business.email %>"> <%= @business.email %></a></p>
         <p><i class="fas fa-phone mr-3"></i> <%= @business.phone %></p>
       </div>
       <!-- Grid column -->
@@ -91,7 +91,7 @@
     </div>
     <!-- Copyright -->
     <div class="footer-copyright text-center"><small>© 2019 Copyright:
-      <a href="#"> <%= @business.email if @business.email.present? %></a></small>
+      <a href="mailto:<%= @business.email if @business.email.present? %>"> <%= @business.email if @business.email.present? %></a></small>
     </div>
   </div>
 </footer>

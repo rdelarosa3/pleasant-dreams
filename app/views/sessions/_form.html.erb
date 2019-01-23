@@ -13,6 +13,7 @@
     <div class="card col-md-6 shadow" id="sign-card">
       <h2 class="text-center mt-4">Sign in</h2> 
       <%= simple_form_for :session, url: session_path, defaults: {required:false} do |f| %>
+        
         <%= f.input :email, placeholder: 'user@domain.com' %>              
         <%= f.input :password %>
         <%= f.button :submit, class:"btn btn-danger btn-block" %>
@@ -21,7 +22,7 @@
       <% if Clearance.configuration.allow_sign_up? %>
         <p class="hint-text text-center small text "></p>
       <% end %>
-      <p class="hint-text text-center small text "><%= link_to 'Reset password', new_password_path %></p>
+      <p class="hint-text text-center small text "><%= link_to 'Reset password', reset_password_path %></p>
     </div>
     <div class="col-md-3"></div>
   </div>
