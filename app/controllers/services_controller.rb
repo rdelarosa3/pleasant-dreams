@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :authorize, only: [:show, :edit, :update, :destroy, :new, :index]
-  before_action :set_business, only: [:show, :edit, :update, :destroy, :index, :new]
+  before_action :set_business, only: [:create,:show, :edit, :update, :destroy, :index, :new]
 
 
   def index

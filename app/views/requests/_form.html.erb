@@ -1,6 +1,6 @@
 
 <!-- <span id="requestPartial">< render partial:"/requests/errors" %></span> -->
-<%= simple_form_for @request do |f| %>
+<%= simple_form_for @request, :url => { :controller => 'requests', :action => "create", :anchor => "div2" } do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   First Name

@@ -6,4 +6,8 @@ class WelcomeController < ApplicationController
 	  	@request = Request.new
 	  	@user = User.new
   end
+
+
+   
+
 end

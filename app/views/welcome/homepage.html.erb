@@ -574,7 +574,7 @@ and (orientation : landscape) {
 </button>
 <div id="bookingContainer" class="shadow">
   <div class="booking-top-bar" data-reactid=".0.5.0">
-    <div class="booking-top-bar-text">Contact Us</div>
+    <div class="booking-top-bar-text"><%= @business.phone if @business.phone.present? %></div>
     <div class="booking-top-bar-button" onclick="hideBooking()">
       <i class="fas fa-chevron-down"></i>
     </div>

@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :authorize, only: [:show, :edit, :update, :destroy, :index]
-  before_action :set_business, only: [:show, :edit, :update, :destroy, :index, :new]
+  before_action :set_business, only: [:create, :show, :edit, :update, :destroy, :index, :new]
   # include UsersHelper
 
   def index
@@ -31,10 +31,9 @@ class RequestsController < ApplicationController
         format.json { render :show, status: :created, location: @request }
 
       else
-        # flash.now.notice = @request.errors.full_messages.to_sentence 
-        flash.now.notice = @request.errors[:overlapping_appointments].first || @request.errors[:stylist_id].first || @request.errors[:verify_time].first || @request.errors[:verify_day].first
-        format.js { render :file => "/layouts/application.js"}
-        format.html { render :new }
+        flash.now.notice = @request.errors.full_messages.to_sentence 
+
+        format.html { render :new, anchor: 'div2' }
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
