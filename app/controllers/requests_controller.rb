@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @request.save # format.js { render :file => "/layouts/application.js"}
         RequestMailer.status_email(@request).deliver
-        RequestMailer.new_request(@request).deliver
+        RequestMailer.new_request(@request,@users).deliver
         flash.now.notice = "Inquiry request submitted."
         format.html { redirect_to root_path, notice: 'Inquiry request submitted.' }
         format.json { render :show, status: :created, location: @request }
