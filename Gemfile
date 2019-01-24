@@ -52,6 +52,8 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 
 gem 'rails_admin'
 
+gem 'fog-aws'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

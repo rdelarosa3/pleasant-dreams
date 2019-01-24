@@ -14,7 +14,7 @@ ActiveRecord::Base.transaction do
       business['city'] = "San Antonio"
       business['state'] = "TX"
       business['country'] = "USA"
-      business['phone'] = "+1(210)923-1894"
+      business['phone'] = "+1(210)507-2502"
       business['messenger'] = 'PleasantDreamsCO'
       business['zipcode'] = 78214
       business['email'] = "info@pleasant-dreams.com"
@@ -23,7 +23,7 @@ ActiveRecord::Base.transaction do
       business['instagram'] = 'https://www.instagram.com/richardbiglopez'
       business['facebook'] = 'https://www.facebook.com/BIG7395REWK'
       business['youtube'] = 'https://www.youtube.com/'
-      business['hashtag'] = 'tattoo'
+      business['hashtag'] = 'pleasantdreamsco'
       business['bio'] = 'Pleasant Dreams offers top quality work. All artists are trained in best and safe practices to ensure the safety of all of our clients.'
       business['tattoo'] ='From grayscale to full color, Reworks and Cover-ups, we do it all. Express yourself with a custom tattoo.'
       business['piercing'] = 'Piercing services coming soon.'
@@ -60,24 +60,50 @@ end
 user = {}
 
 
+
+
 ActiveRecord::Base.transaction do
 
-    user['first_name'] = 'admin'
-    user['last_name'] = 'admin'
-    user['email'] = "admin@admin.com"
+    user['first_name'] = 'Robert'
+    user['last_name'] = 'Delarosa'
+    user['email'] = "rdelarosa39@gmail.com"
     user['role'] = 2
     user['password'] = 'admin'
-    user['hashtag'] = 'pleasantdreamsco'
-    user['phone_number'] = "+1 (210) 923-1894"
-    user['bio'] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit.m.'
+    user['hashtag'] = 'khmergirl'
+    # user['phone_number'] = "+1 (210) 802-8403"
+    user['bio'] = 'Computer Programmer'
     User.create(user)
 
 end 
 
+ActiveRecord::Base.transaction do
 
+    user['first_name'] = 'Richard'
+    user['last_name'] = 'Lopez'
+    user['email'] = "richard@email.com"
+    user['role'] = 1
+    user['title'] = Title.find(3)
+    user['password'] = '12345'
+    user['hashtag'] = 'pleasantdreamsco'
+    user['phone_number'] = "+1 (210) 254-3432"
+    user['bio'] = 'Richard is a tattoo, mural and graffiti artist . He trained at the International Academy of Design and Technology before becoming a full time tattoo artist.'
+    User.create(user)
+
+end 
+ActiveRecord::Base.transaction do
+
+    user['first_name'] = 'Mayra'
+    user['last_name'] = 'Neaves'
+    user['email'] = "myneaves@gmail.com"
+    user['role'] = 1
+    user['title'] = Title.find(4)
+    user['password'] = 'admin'
+    user['hashtag'] = 'baseball'
+    user['phone_number'] = "+1 (210) 923-1894"
+    user['bio'] = 'Mayra is a sexy bitch.'
+    User.create(user)
+
+end 
 service = {}
 service_names = ["Qtr Sleeve Grayscale","Qtr Sleeve Color","Half Sleeve Grayscale","Half Sleeve Color","Full Sleeve Grayscale","Full Sleeve Color","Cover-ups","2x3-3x5 Grayscale","3x3-3x6 Color","4x4-4x6"]
 ActiveRecord::Base.transaction do

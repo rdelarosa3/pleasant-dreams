@@ -63,7 +63,7 @@
               <tr style="color:black;text-shadow: none;">
                 <td><%= service.name %></td>
                 <td>$<%= service.price %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>$<%= service.range %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><% if service.range.present? %>$<%= service.range %>&nbsp;&nbsp;&nbsp;&nbsp;<%end%></td>
               </tr>
             <% end %>
 

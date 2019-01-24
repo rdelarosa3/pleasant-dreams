@@ -27,7 +27,7 @@
             <tr>
               <td><%= service.name %></td>
               <td>$<%= service.price %></td>
-              <td>$<%= service.range %></td>
+              <td><% if service.range.present? %>$<%= service.range %><%end%></td>
               <td><%= link_to 'Show', service %></td>
               <td><%= link_to 'Edit', edit_service_path(service) %></td>
               <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
