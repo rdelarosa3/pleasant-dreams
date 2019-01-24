@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
   def create
 
     @request = Request.new(request_params)
-    @users = Users.all.where(role: [1,2])
+    @users = User.all.where(role: [1,2])
     respond_to do |format|
       if @request.save # format.js { render :file => "/layouts/application.js"}
         RequestMailer.status_email(@request).deliver
