@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  	
+		<div>
+			 <span style="font-size: 12px; line-height: 1; color: #333333;">
+
+			   <p> <%= @request.first_name %>, sent an inquiry for:</p>
+			    <h3><%= @request.subject %>:</h3>
+			    <p><%= @request.message %></p>
+
+			    <p>Please contact at: <%= request.phone_number %> or <%= request.email %>
+			    <br /><br />
+
+			</span>
+		</div>
+	
+  </body>
+</html>
