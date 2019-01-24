@@ -1,7 +1,8 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:show, :edit, :update, :destroy, :index]
+  before_action :authorize, only: [:show, :edit, :update, :destroy]
   before_action :set_business, only: [:create, :show, :edit, :update, :destroy, :index, :new]
+  before_action :index_check, only: :index
   # include UsersHelper
 
   def index
@@ -76,6 +77,16 @@ class RequestsController < ApplicationController
         end
       else
         redirect_to root_path
+      end
+    end
+
+    def index_check
+      if signed_in?
+        unless current_user.admin? || current_user.operator?
+          redirect_to portal_path, alert: 'You must be admin to access this page.' 
+        end
+      else
+        redirect_to portal_path
       end
     end
     # Use callbacks to share common setup or constraints between actions.

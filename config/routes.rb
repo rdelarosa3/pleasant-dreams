@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/contact_us' => 'requests#new', as: 'contact'
   get '/artists/:id' => 'users#show', as: 'artista'
   get '/artists/:id/edit' => 'users#edit', as: nil
-  get '/portal' => 'clearance/sessions#new', as: nil
+  get '/portal' => 'clearance/sessions#new', as: 'portal'
   get '/password/reset' => 'clearance/passwords#new', as: 'reset_password'
   # this is the end of my routes
 
