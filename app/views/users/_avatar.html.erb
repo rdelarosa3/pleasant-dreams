@@ -1,4 +1,4 @@
-<center>
+@user<center>
   <% if @user.avatar? %>
       <%= image_tag(@user.avatar_url, class: 'rounded-circle mt-4 shadow-sm',width: '200', height: '200') %>
       <br><br>
@@ -13,7 +13,7 @@
           <ul class="list-inline social-buttons">
             <li class="list-inline-item insta">
               <% if @user.instagram.present? %>
-                <a href="<%=artist.instagram%>"target="_blank">
+                <a href="<%=@user.instagram%>"target="_blank">
                   <% else %>
                 <a href="">  
               <% end %>    
@@ -23,7 +23,7 @@
             
             <li class="list-inline-item fb">
               <% if @user.facebook.present? %>
-                <a href="<%=artist.facebook %>" target="_blank">
+                <a href="<%=@user.facebook %>" target="_blank">
                   <% else %>
                <a href="" >   
               <% end %>    
@@ -33,7 +33,7 @@
             
             <li class="list-inline-item linked">
               <% if @user.linkedin.present? %>
-                <a href="<%= artist.linkedin %>"target="_blank">
+                <a href="<%= @user.linkedin %>"target="_blank">
                   <% else %>
               <a href="">    
               <% end %>

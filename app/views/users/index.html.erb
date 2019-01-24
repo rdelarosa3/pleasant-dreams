@@ -30,7 +30,7 @@
               <td><%= user.first_name %> <%= user.last_name %></td>
               <td><%= user.email %></td>
               <td><%= user.phone_number %></td>
-              <td><%= user.title %></td>
+              <td><%= user.title.name %></td>
               <td><%= user.role %></td>
               <td><%= link_to 'Show', user %></td>
               <td><%= link_to 'Edit', edit_user_path(user) %></td>
