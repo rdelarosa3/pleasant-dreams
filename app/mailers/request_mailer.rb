@@ -8,7 +8,7 @@ class RequestMailer < ApplicationMailer
   		@request = request
   		@users = users
   		@users.each do |user|
-  			mail(to: user.email), subject: "Pleasant Dreams Co. NEW Inquiry")
+  			mail(to: user.email, subject: "Pleasant Dreams Co. NEW Inquiry")
   		end
   end
 end
