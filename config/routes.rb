@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # this are my routes
+  default_url_options :host => "pleasantdreams.herokuapp.com"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'welcome#homepage'
   get 'welcome/homepage'
