@@ -3,41 +3,7 @@
     background-color: #000000cf;
     color:white;
   }
-
-  .card, .card a, .card p{
-    background: url('<%= asset_url "broken_noise.png"%>');
-    color:white;
-  }
-  .mt-100 {
-    margin-top: 100px;
-  }
-
-  h2 {
-    font-size: 40px;
-    font-weight: 700;
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-  }
-
-  h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-  }
-
-  @media only screen and (device-width: 768px) {
-  	#editDiv {
-  		margin-left: 100px;
-  		flex: 0 0 50%;
-    max-width: 50%;
-  	}
-  }
-
-  form .text-muted {
-    color: #da6565 !important;
-}
-
 </style>
-
+<div id="businessEdit">
 <%= render 'form', business: @business %>
-
-
+</div>

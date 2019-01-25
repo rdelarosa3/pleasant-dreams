@@ -1,52 +1,46 @@
 <style>
-  table a{
-    color:white;
-  }
   body {
     background-color: #343a406e;
   }
-    @media (max-width: 900px){
-  .responsive-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
+
+  footer p, footer a {
+    color:black;
   }
 </style>
-<div class="container mt-100">
-  <center><h1 class="text-center font-weight-bold">Services</h1></center>
-  <div class="row">
-      
-      <table class="table table-dark responsive-table">
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Base Price</th>
-            <th>Up To</th>
-            <th> View</th>
-            <th> Edit </th>
-            <th> Delete </th>
-          </tr>
-        </thead>
 
-        <tbody>
-          <% @services.each do |service| %>
+<div id="servicesIndex">
+  <div class="container mt-100">
+    <center><h1 class="text-center font-weight-bold">Services</h1></center>
+    <div class="row">
+        
+        <table class="table table-dark responsive-table">
+          <thead>
             <tr>
-              <td><%= service.name %></td>
-              <td>$<%= service.price %></td>
-              <td><% if service.range.present? %>$<%= service.range %><%end%></td>
-              <td><%= link_to 'Show', service %></td>
-              <td><%= link_to 'Edit', edit_service_path(service) %></td>
-              <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th>Service</th>
+              <th>Base Price</th>
+              <th>Up To</th>
+              <th> View</th>
+              <th> Edit </th>
+              <th> Delete </th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            <% @services.each do |service| %>
+              <tr>
+                <td><%= service.name %></td>
+                <td>$<%= service.price %></td>
+                <td><% if service.range.present? %>$<%= service.range %><%end%></td>
+                <td><%= link_to 'Show', service %></td>
+                <td><%= link_to 'Edit', edit_service_path(service) %></td>
+                <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <br>  
+      <center><%= link_to 'New Service', new_service_path, class: 'btn btn-danger' %></center>
     </div>
-    <br>  
-    <center><%= link_to 'New Service', new_service_path, class: 'btn btn-danger' %></center>
   </div>
 </div>
-

@@ -1,3 +1,178 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ /**- USER PROFILE PAGE -**/
+
+  #userShow .about-artist{
+    color:white!important;
+  }
+  #userShow .btn-edit {
+      color: #fff;
+      background-color: #07b8da;
+      border-color: #06a9c7d6;
+  }
+
+  #userShow .mt-100 {
+    margin-top: 100px;
+  }
+
+  #userShow h2 {
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+    line-height: 1.2;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  #userShow h4 {
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  #userShow .appointment-card{
+    margin-top: 2.5rem;
+  }
+  #userShow .mt-65{
+    margin-top:55px;
+    max-width: 100%;
+  }
+
+
+  /*****INSTAGRAM GALLERY SECTION*****/
+
+  #userShow .gallery-block.compact-gallery{
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+
+  #userShow .gallery-block.compact-gallery .heading{
+      margin-bottom: 50px;
+      text-align: center;
+  }
+
+  #userShow .gallery-block.compact-gallery .item .image{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.4s;
+    border-radius: 50px 15px;
+  }
+
+  #userShow .gallery-block.compact-gallery .item{
+    margin-bottom: 20px;
+  }
+
+  #userShow .gallery-block.compact-gallery .zoom-on-hover:hover .image,
+  #userShow .gallery-block.compact-gallery .zoom-on-hover:focus .image,
+  #userShow .gallery-block.compact-gallery .zoom-on-hover:active .image{
+    transform: scale(1.08);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /*mobile friendly area*/
+
+  @media (min-width: 768px){
+    #userShow .col-md-2 {
+      -webkit-box-flex: 0!important;
+      -ms-flex: 0 0 50%!important;
+      flex: 0 0 50%!important;
+      max-width: 50%!important;
+      position: relative!important;
+      width: 100%!important;
+      min-height: 1px!important;
+      padding-right: 15px!important;
+      padding-left: 15px!important;
+    }
+  }
+
+  @media (min-width: 992px){
+    #userShow .col-lg-2 {
+        flex: 0 0 25%!important;
+        max-width: 25%!important;
+        position: relative!important;
+        width: 100%!important;
+        min-height: 1px!important;
+        padding-right: 15px!important;
+        padding-left: 15px!important;
+    }
+  }
+
+  @media only (max-width: 480px) {
+  #userShow .lightbox  {
+      display: none!important;
+    }
+  }
+ /**- END USER PROFILE PAGE -**/
+
+ /**- USER CREATE / REGISTER PAGE -**/
+
+
+  #userRegistration .card, .card a, .card p{
+    background: url(asset-path("broken_noise.png"));
+    color:white;
+  }
+  #userRegistration .mt-100 {
+    margin-top: 100px;
+  }
+
+  #userRegistration h2 {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  #userRegistration h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+/**- END USER CREATE / REGISTER PAGE -**/
+
+/**- USERS INDEX PAGE -**/
+  #usersIndex table a{
+    color:white;
+  }
+
+  @media (max-width: 900px){
+  #usersIndex .responsive-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+  }
+/**- END USERS INDEX PAGE -**/
+
+/**- USERS EDIT PAGE -**/
+
+  #usersEditPage .card, #usersEditPage .card a, #usersEditPage .card p{
+    background: url(asset-path("broken_noise.png"));
+    color:white;
+  }
+  #usersEditPage .mt-100 {
+    margin-top: 100px;
+  }
+
+  #usersEditPage h2 {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  #usersEditPage h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  @media only screen and (device-width: 768px) {
+  	#usersEditPage #editDiv {
+  		margin-left: 100px;
+  		flex: 0 0 50%;
+    	max-width: 50%;
+  	}
+  }
+/**- END USERS EDIT PAGE -**/

@@ -3,279 +3,73 @@
     margin-top: 100px;
   }
 
-  .search-bar{
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-
   a:hover {
     text-decoration: none
   }
 
-  .blink{
-    color: rgb (0, 137, 226);
-    
-    animation: blink 1s infinite;
-   }
-   
-   @keyframes blink{
-    0%{opacity: 1;}
-    75%{opacity: 1;}
-    76%{ opacity: 0;}
-    100%{opacity: 0;}
-   }
-
-  .new-stylist {
-      display: none;
-    }
-
-  @media (max-width: 800px) { 
-    .search-bar {
-      margin-left: 27px;
-    }  
+  .table-responsive{
+    display: inline-table!important;
   }
 
-  .select2 {
-width:100%!important;
-
-}
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #212529;
-}
-@media (min-width: 1200px){
-.search-bar{
-  margin: auto;
-}
-.table-responsive{
-display: inline-table!important;
-}
-}
-
-@media (max-width: 500px){
-.table-responsive{
-display: inline-table!important;
-}
-}
-
-@media (min-width:768px){
-#tableForm {
-display: inline-table!important;
-}
-}
-
-table.bt thead,
-table.bt tbody th {
-  display: none;
-}
-
-table.bt tfoot th,
-table.bt tfoot td,
-table.bt tbody td {
-  border: none;
-  display: block;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  vertical-align: top;
-
-  /* IE 9 */
-  float: left\9;
-  width: 100%\9;
-}
-
-table.bt tfoot th::before,
-table.bt tfoot td::before,
-table.bt tbody td::before {
-  content: attr(data-th) ": ";
-  display: inline-block;
-  -webkit-flex-shrink: 0;
-  -ms-flex-shrink: 0;
-  flex-shrink: 0;
-  font-weight: bold;
-  width: 6.7em;
-}
-
-table.bt tfoot th.bt-hide,
-table.bt tfoot td.bt-hide,
-table.bt tbody td.bt-hide {
-  display: none;
-}
-
-table.bt tfoot th .bt-content,
-table.bt tfoot td .bt-content,
-table.bt tbody td .bt-content {
-  vertical-align: top;
-}
-
-.bt-wrapper.active {
-  max-height: 310px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-table.bt.bt--no-header tfoot td::before,
-table.bt.bt--no-header tbody td::before {
-  display: none;
-}
-
-
-
-table {
-  background: white;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-table tr,
-table th,
-table td {
-  border: none;
-  border-bottom: 1px solid #e4ebeb;
-  /*font-family: 'Lato', sans-serif;*/
-  font-size: .875rem;
-}
-
-table th,
-table td {
-  padding: 10px 12px;
-  text-align: left;
-}
-
-table th {
-  background: black;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-table tr td {
-  background: #e8e8e8;
-  color: #495057;
-}
-
-table tr:nth-of-type(2n+2) td {
-  background: #ffffff;
-}
-
-table.bt tfoot th,
-table.bt tfoot td,
-table.bt tbody td {
-  font-size: .8125rem;
-  padding: 0;
-}
-
-table.bt tfoot th:before,
-table.bt tfoot td:before,
-table.bt tbody td:before {
-  background: black;
-  color: white;
-  margin-right: 10px;
-  padding: 2px 10px;
-}
-
-table.bt tfoot th .bt-content,
-table.bt tfoot td .bt-content,
-table.bt tbody td .bt-content {
-  display: inline-block;
-  padding: 2px 5px;
-}
-
-table.bt tfoot th:first-of-type:before,
-table.bt tfoot th:first-of-type .bt-content,
-table.bt tfoot td:first-of-type:before,
-table.bt tfoot td:first-of-type .bt-content,
-table.bt tbody td:first-of-type:before,
-table.bt tbody td:first-of-type .bt-content {
-  padding-top: 10px;
-}
-
-table.bt tfoot th:last-of-type:before,
-table.bt tfoot th:last-of-type .bt-content,
-table.bt tfoot td:last-of-type:before,
-table.bt tfoot td:last-of-type .bt-content,
-table.bt tbody td:last-of-type:before,
-table.bt tbody td:last-of-type .bt-content {
-  padding-bottom: 10px;
-  margin-bottom: 1px;
-}
-
-
+  @media (max-width: 500px){
+    .table-responsive{
+    display: inline-table!important;
+    }
+  }
 </style>
+ 
+<div id="#requestsIndex">
+  <center><p id="notice"><%= notice %></p></center>
 
-
-
-  <!-- Search bars -->
-<center><p id="notice"><%= notice %></p></center>
-
-
-<div class="container mt-100 mb-5">
-  <div class="shadow">
-    <table class="table-responsive" table-dark id="example1">
-      <thead>
-        <tr style="background: black;">
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Subject</th>
-          <th>Message</th>
-          <th>Status</th>
-          <th>View</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% if @requests %>
-        <%  @requests.each do |appointment|%>
-          <tr>
-            <td><span><%= appointment.first_name %> <%= appointment.last_name %></span></td>
-            <td><a href="mailto:<%= appointment.email %>"><%= appointment.email %></a></td>
-            <td><%= appointment.phone_number %></td>
-            <td><%= appointment.subject %></td>
-            <td><%= appointment.message %></td>
-            <td><% if !appointment.reviewed %><span class='text-warning font-weight-bold text-uppercase blink'>NEW </span><% else %><span class='text-info font-weight-bold text-uppercase'>Reviewed</span><%end%>
-            </td>
-            <td><%= link_to 'Show', appointment %></td>
-            
-            <td>
-              <center>
-                <%= link_to '', edit_request_path(appointment) , class: "fas fa-pencil-alt" %>
-              </center>
-            </td>
-            <td>
-              <center>
-              <%= link_to '', appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger fas fa-minus-circle fa-2x" %>
-              </center>
-            </td>
-            
+  <div class="container mt-100 mb-5">
+    <div class="shadow">
+      <table class="table-responsive" table-dark id="table1">
+        <thead>
+          <tr style="background: black;">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
-        <% end %>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
 
+        <tbody>
+          <% if @requests %>
+          <%  @requests.each do |appointment|%>
+            <tr>
+              <td><span><%= appointment.first_name %> <%= appointment.last_name %></span></td>
+              <td><a href="mailto:<%= appointment.email %>"><%= appointment.email %></a></td>
+              <td><%= appointment.phone_number %></td>
+              <td><%= appointment.subject %></td>
+              <td><%= appointment.message %></td>
+              <td><% if !appointment.reviewed %><span class='text-warning font-weight-bold text-uppercase blink'>NEW </span><% else %><span class='text-info font-weight-bold text-uppercase'>Reviewed</span><%end%>
+              </td>
+              <td><%= link_to 'Show', appointment %></td>
+              
+              <td>
+                <center>
+                  <%= link_to '', edit_request_path(appointment) , class: "fas fa-pencil-alt" %>
+                </center>
+              </td>
+              <td>
+                <center>
+                <%= link_to '', appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger fas fa-minus-circle fa-2x" %>
+                </center>
+              </td>
+              
+            </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-
-<script>
-$(document).ready(function() {
-    $('#example1').DataTable();
-} );
-
-$(document).ready(function() {
-  $('select#request_stylist').select2({
-    placeholder: "Choose a stylist",
-    allowClear: false,
-    width: 'resolve'
-  });
-  $('select#request_service').select2({
-    placeholder: "Choose a service",
-    allowClear: false
-  });
-});
-</script>
-
 <script>
 (function($) {
   $.fn.basictable = function(options) {
@@ -500,10 +294,10 @@ $(document).ready(function() {
   };
 })(jQuery);
 </script>
+<script type="text/javascript">
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#example1').basictable();
-      $('#tableForm').basictable();
-    });
-  </script>
+$(document).ready(function() {
+    $('#table1').basictable();
+    $('#tableForm').basictable();
+  });
+</script>

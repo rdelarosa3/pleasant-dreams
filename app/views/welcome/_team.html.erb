@@ -1,20 +1,3 @@
-<style>
-  @media (min-width: 500px){
-    #memberRow{
-    flex-wrap: unset!important;
-    overflow-x: auto;
-    }
-  }
-
-@media (max-height: 450px){
-  .col-sm-4{
-    max-width: 50.33333%!important;
-  }
-}
-
-</style>
-
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12 text-center">
@@ -25,12 +8,15 @@
   <!-- list each member that is artist from database -->
   <div class="row scrolling-wrapper tab" id="memberRow">
     <% @staff.each do |artist|%>
-     <% if @staff.count > 1 %>
-      <div class="col-md-4">
-     <% else %>
-      <div class="col-md-12">
-     <% end %>
+
+      <% if @staff.count > 1 %>
+        <div class="col-md-4">
+      <% else %>
+        <div class="col-md-12">
+      <% end %>
+
         <div class="team-member">
+          <!-- avatar picture -->
           <% if  artist.avatar? %>
             <%= link_to image_tag(artist.avatar_url, class: ' mx-auto rounded-circle',width: '255', height: '255', alt: ""), artista_path(artist.id) %>
           <% else %>
@@ -39,6 +25,9 @@
           <h4><%= artist.first_name %></h4>
           <p class="text-muted"><%= artist.title.name if !artist.title.nil? %></p>
 
+          <!-- ***team member social buttons***  -->
+
+          <!-- instagram section -->
           <ul class="list-inline social-buttons">
             <li class="list-inline-item insta">
               <% if artist.instagram.present? %>
@@ -49,7 +38,7 @@
               <i class="fab fa-instagram"></i>
               </a>
             </li>
-            
+            <!-- facebook section -->
             <li class="list-inline-item fb">
               <% if artist.facebook.present? %>
                 <a href="<%=artist.facebook %>" target="_blank">
@@ -59,7 +48,7 @@
               <i class="fab fa-facebook-f"></i>
               </a>
             </li>
-            
+            <!-- linkedin section -->
             <li class="list-inline-item linked">
               <% if artist.linkedin.present? %>
                 <a href="<%= artist.linkedin %>"target="_blank">
@@ -69,13 +58,15 @@
               <i class="fab fa-linkedin-in"></i>
               </a>
             </li> 
-          </ul>
+          </ul><!-- team member social buttons  -->
+
         </div>
       </div>
     <% end %>
-  </div>
-  <!-- !list each member that is artist from database -->
+  </div><!-- !list each member that is artist from database -->
+
   
+  <!-- team member scroll button section -->
   <div class="row">
     <div class="mx-auto text-center">
      
@@ -88,9 +79,12 @@
         <p class="large">Make your appointment with one of our highly skilled team members today.</p>
     </div>
   </div>
+
 </div>
+
 <script>
 
+// team member scroll button click function
 $(document).ready(function(){
     $("#memberRight").click(function(){
       console.log("pressed");
@@ -103,6 +97,7 @@ $(document).ready(function(){
     });
 });
 
+// hide buttons on mobile device
 $(document).ready( function() {
     if (screen.width <= 480) {
         $('.memberNav').hide();

@@ -2,4 +2,628 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*mobile styling*/
+  /***HEADER SECTION***/
+
+  /*video and jumbotron section*/
+  .uptop {
+    position: relative;
+    background-color: black;
+    height: 100vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .uptop video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .uptop .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .uptop .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .uptop a#scroll-down {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    bottom: 5rem;
+    z-index: 999;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+
+  .uptop i {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    Font-family: 'FontAwesome';
+    content: "\f078";
+    font-weight: 200!important;
+    text-decoration: none!important;
+    line-height: 1;
+    top: 20px;
+    left: 18px;
+    font-size: 20px;
+    position: absolute;
+  }
+  a#scroll-down:hover, a#top-arrow:hover, input[type='submit'], input[type='reset'], .wolf-button, .button {
+   background:#c74735;
+   border-color:#c74735;
+  }
+  @media (pointer: coarse) and (hover: none) {
+    header {
+      background: url(asset-path("jumbo-img.jpg")) black no-repeat center center scroll;
+    }
+    header video {
+      display: none;
+    }
+  }
+
+  /*header fonts*/
+  .uptop h1 {
+    font: 400 100px/0.8 'Arizonia', Helvetica, sans-serif;
+    color: #efecec;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  }
+
+  .uptop h2 {
+    font: 400 25px/3.3 !important ;
+    color: #efecec;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  }
+
+  .uptop p{
+    margin-top:20px;
+    letter-spacing: 5px;
+    color: #dcdcdc!important;
+  }
+
+  /*header mobile friendly section*/
+
+  @media (max-width: 800px) {
+    .uptop h1 {
+      font: 400 40px/1.1 'Arizonia', Helvetica, sans-serif;
+    }
+
+    .uptop p{
+      font-size: x-small;
+    }
+
+    .uptop h2 {
+    font-size: larger;
+    }
+
+    #about {
+      padding-top: 50px;
+    }
+  }
+
+  @media (max-width: 500px){
+        #about h2{
+        font-size: 32px;
+      }
+  }
+
+  @media (max-height: 450px) and (min-height: 350px) {
+    .uptop h1 {
+      font: 400 60px/0.8 'Arizonia', Helvetica, sans-serif;
+    }
+
+    .uptop p{
+      font-size: medium;
+      padding-bottom: 30px;
+    }
+
+    .uptop h2 {
+      font-size: larger;
+    }
+
+    .uptop a#scroll-down {
+      margin-bottom: -30px;
+    }
+
+    #about h2{
+      font-size: inherit;
+    }
+  }
+
+
+  @media only screen and (device-width: 768px) {
+    /* For general iPad layouts */
+    .uptop h1 {
+      font: 400 80px/1.3 'Arizonia', Helvetica, sans-serif;
+    }
+    
+    .uptop h2 {
+    font-size: larger;
+    }
+
+    .uptop p{
+      font-size: medium;
+    }
+    #about h2{
+      font-size: inherit;
+    }
+  }
+
+  @media only screen and (device-width: 1024px) {
+    .uptop p{
+      font-size: x-large;
+    }
+    .uptop h1 {
+      font: 400 100px/2.3 'Arizonia', Helvetica, sans-serif;
+    }
+
+    .uptop h2 {
+    font: 400 25px/3.3 ;
+    }
+  }
+  /* !mobile section */
+
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #6c757d;
+    font-family: 'Roboto Slab',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+
+  /****SERVICES SECTION*****/
+
+  #services h2, #gallery h2{
+    color: #dcdcdc;
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  #services h4{
+    color:#dcdcdc;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  #services h3, #gallery h3 {
+    color:#a7abaf;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-transform: none;
+    font-family: 'Droid Serif',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  #services .fa-stack i {
+    border-radius: 100%;
+    outline: none;
+    background-color: #c74735;
+  }
+
+  #services p{
+    color:#a7abaf;
+  }
+  .service-heading {
+    margin-top: 10px;
+  }
+  #services h3 a{
+    text-decoration: none;
+  }
+  #services .section-footer {
+    margin-top: 31px;
+    margin-bottom: -35px;
+  }
+
+  /*!services
+
+  /******* Team members section **********/
+
+  #team h2 {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+  #team h4 {
+    margin-top: -15px;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  }
+
+  /*team member fonts*/
+
+  .team-member p {
+    margin-top: -25px;
+  }
+
+  .team-member h4 {
+    margin-top: 25px;
+    margin-bottom: 0;
+    text-transform: none;
+  }
+
+  #team p {
+    color:white!important;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  }
+
+  .team-member {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .team-member img {
+    margin-bottom: 15px;
+    width: 225px;
+    height: 225px;
+    margin-bottom: 30px
+    /*border: 7px solid #eef4f5;*/
+  }
+
+  /* scrolling effect on mobile device */
+  @media (min-width: 500px){
+    #memberRow{
+    flex-wrap: unset!important;
+    overflow-x: auto;
+    }
+  }
+
+  /*@media (max-height: 450px){
+    .col-sm-4{
+      max-width: 50.33333%!important;
+    }
+  }*/
+
+  .parallax {
+    background-image: url(asset-path("parallax.jpg"));
+    min-height: 700px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /*!team member section*/
+
+/******* BOOK NOW BUTTON section **********/
+
+  .booking-launch-button {
+    position: fixed !important;
+    bottom: 15px !important;
+    right: 20px !important;
+    left: auto !important;
+    height: 48px !important;
+    width: auto !important;
+    z-index: 1031 !important;
+    background: #cc4330 !important;
+    border: 0 !important;
+    border-radius: 100px !important;
+    box-shadow: 0 3px 15px 0 rgba(0,0,0,0.25) !important;
+    box-sizing: border-box !important;
+    padding: 0 20px !important;
+    transition: all .4s,bottom .8s ease-in-out !important;
+    cursor: pointer !important;
+    outline: none !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  }
+
+  .booking-launch-button .booking-button-text {
+    color: #fff !important;
+    display: inline-block !important;
+    font-size: 1.3em !important;
+    line-height: 48px !important;
+    font-weight: bold !important;
+    max-width: 200px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    vertical-align: top !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    transition: .6s ease-in-out !important;
+  }
+
+  /*MOBILE FRIENDLY CSS*/
+
+  @media (max-width: 800px){
+    #bookingContainer {
+      display: none;
+      max-height: 100% !important;
+      border-radius: 0 0 0 0 !important;
+      transition: all .6s ease-in-out,width .2s ease-in-out,top .4s ease-in-out !important;
+      background: #fff !important;
+      position: fixed !important;
+      bottom: 0 !important;
+      right: 0 !important;
+      top: 0 !important; 
+      width: 100% !important;
+      height: 100% !important;
+      color: #000 !important;
+      line-height: 2 !important;
+      text-align: left !important;
+      z-index: 1031 !important;
+      zoom: 0 !important;
+      transition: .3s ease-in-out !important;
+      -webkit-font-smoothing: antialiased !important;
+      overflow: auto
+    }
+    .booking-top-bar {
+      padding-bottom: 50px;
+      height: 40px !important;
+      border-radius: 0 !important;
+      color: #ffffff !important;
+    }
+    .booking-launch-button .booking-button-text {
+      font-size: 1.3em !important; 
+      line-height: 34px !important;
+    }
+    .booking-launch-button {
+      height: 31px !important
+    }
+  }
+
+
+  @media (min-width: 800px){
+    #bookingContainer {
+      display: none;
+      width: 350px !important;
+      height: 450px !important;
+      max-height: 95% !important;
+      border-radius: 10px !important;
+      top: inherit !important;
+      transition: all .6s ease-in-out,width .2s ease-in-out,top .4s ease-in-out !important;
+      right: 20px !important;
+      bottom: 10px !important;
+      background: #fff !important;
+      position: fixed !important;
+      height: 70% !important;
+      color: #000 !important;
+      line-height: 1 !important;
+      text-align: left !important;
+      z-index: 1031 !important;
+      zoom: 0 !important;
+      transition: .3s ease-in-out !important;
+      -webkit-font-smoothing: antialiased !important;
+      margin-bottom: 40px;
+    }
+    .booking-top-bar {
+      padding-bottom: 50px;
+      height: 40px !important;
+      border-radius: 10px 10px 0 0 !important;
+      /*background-color: #c74735 !important;*/
+      color: #ffffff !important;
+      /*border-color: #c74735 !important;*/
+    }
+  }
+
+  .booking-top-bar-text {
+    color: #fff !important;
+    font-size: 15px;
+    letter-spacing: 0.5px !important;
+    line-height: 52px !important;
+    text-decoration: none !important;
+    padding: 0 0 0 15px !important;
+    white-space: nowrap !important;
+    float: left !important;
+  }
+
+  .booking-top-bar-button {  
+    height: 100% !important;
+    width: 60px !important;
+    float: right !important;
+    padding: 20px 22px !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    transition: all ease-out .15s !important;
+    outline: none !important;
+    margin-top: -3px!important;
+  }
+  @media (max-width: 500px){
+    .booking-top-bar-button {
+    margin-top: -10px !important;
+    }
+  }
+
+  .form-border{
+    padding: 10px;
+  }
+
+  .form-border, #bookingContainer {
+    background: url(asset-path( "broken_noise.png"))!important;
+    color:white!important;
+  }
+
+  .form-border .btn {
+    width: 100%!important;
+  }
+  /*end booking button section*/
+
+  #sign-in {
+    z-index: 2147483648 !important;
+  }
+
+  .logos{
+    width:210px;
+    height: 66.56px!important;
+  }
+
+  .carousel {
+    margin-top: 55px;
+  }
+
+  .carousel-item,.active {
+    height: 100vh;
+    width: 100%;
+    overflow:hidden;
+  }
+
+  .carousel .carousel-inner {
+    height:100%;    
+  }
+
+  .fill {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  @media (max-width: 1050px) {
+    .fill, .carousel-inner, .active {
+      height: 40vh!important;
+      width: 100%!important;
+      background-size: 100% 100%!important;
+      background-position: right 0px!important;
+    }
+  }
+
+  @-webkit-keyframes move {
+  100% { 
+      transform: translateX(-1200%);  
+    }
+  }
+
+  #about .contain {
+    max-width: 100%;
+    margin:auto;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  #gallery, #services, #about h2, #team h2, #team h4{
+    color:#dcdcdc!important;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  }
+
+/*INSTAGRAM GALLERY SECTION */
+
+  #gallery .gallery-block{
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+
+  #gallery .gallery-block .heading{
+      margin-bottom: 50px;
+      text-align: center;
+  }
+
+  #gallery .gallery-block .heading h2{
+      font-weight: bold;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+  }
+
+  #gallery .gallery-block.compact-gallery .item{
+    overflow: hidden;
+    margin-bottom: 0;
+    background: black;
+    opacity: 1;
+  }
+
+  #gallery .gallery-block.compact-gallery .item .image{
+    transition: 0.8s ease;
+  }
+
+  #gallery .gallery-block.compact-gallery .item .info{
+    position: relative;
+      display: inline-block;
+  }
+
+  #gallery .gallery-block.compact-gallery .item .description{
+    display: grid;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      padding: 10px;
+      font-size: 17px;
+      line-height: 18px;
+      width: 100%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      opacity: 1;
+      color: #fff;
+      transition: 0.8s ease;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.39));
+  }
+
+  #gallery .gallery-block.compact-gallery .item .description .description-heading{
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  #gallery .gallery-block.compact-gallery .item .description .description-body{
+    font-size: 0.8em;
+    margin-top: 10px;
+    font-weight: 300;
+  }
+
+  @media (min-width: 576px) {
+
+    #gallery .gallery-block.compact-gallery .item .description {
+      opacity: 0; 
+    }
+
+    #gallery .gallery-block.compact-gallery .item a:hover .description {
+      opacity: 1; 
+    } 
+
+    #gallery .gallery-block .zoom-on-hover:hover .image {
+      transform: scale(1.3);
+      opacity: 0.7; 
+    }
+  }
+
+  #gallery .ink-image{
+    width:100%;
+  }
+
+  @media (max-width: 767px) {
+    #gallery .col-xs-3, #gallery .col-sm-3{
+      width:25%!important;
+    }
+
+
+    #gal17, #gal18{
+      display: none;
+    }
+  }

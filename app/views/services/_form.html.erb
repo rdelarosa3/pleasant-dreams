@@ -3,24 +3,23 @@
     <div class='col-md-3'>
     </div>
       <div class="col-md-6 text-center">
-<%= simple_form_for(@service) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <%= simple_form_for(@service) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :range %>
-  </div>
+          <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :price %>
+            <%= f.input :range %>
+          </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Update', class: 'btn btn-danger' %>
-    <%= link_to 'Back', services_path, class: 'btn btn-secondary' %>
-  </div>
-<% end %>
-    </div>
+          <div class="form-actions">
+            <%= f.button :submit, 'Update', class: 'btn btn-danger' %>
+            <%= link_to 'Back', services_path, class: 'btn btn-secondary' %>
+          </div>
+        <% end %>
+      </div>
     <div class='col-md-3'>
     </div>
-
   </div>
 </div>

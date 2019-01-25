@@ -5,31 +5,30 @@
 		</div>
 			<div class="col-md-6">
 				<p id="notice"><%= notice %></p>
-<p>
-  <strong>Day:</strong>
-  <%= @business_hour.day %>
-</p>
-	<% if @business_hour.closed %>
-<p>
-	 Closed on this day 
-</p>
-<% else %>
-<p>
-  <strong>Open time:</strong>
-  <%= @business_hour.open_time.strftime("%H:%M") %>
-</p>
+				<p>
+				  <strong>Day:</strong>
+				  <%= @business_hour.day %>
+				</p>
+					<% if @business_hour.closed %>
+				<p>
+					 Closed on this day 
+				</p>
+				<% else %>
+				<p>
+				  <strong>Open time:</strong>
+				  <%= @business_hour.open_time.strftime("%H:%M") %>
+				</p>
 
-<p>
-  <strong>Close time:</strong>
-  <%= @business_hour.close_time.strftime("%H:%M") %>
-</p>
-<% end %>
+				<p>
+				  <strong>Close time:</strong>
+				  <%= @business_hour.close_time.strftime("%H:%M") %>
+				</p>
+				<% end %>
 
-<%= link_to 'Edit', edit_business_hour_path(@business_hour), class: 'btn btn-danger' %>
-<%= link_to 'Back', business_hours_path, class: 'btn btn-secondary' %>
-</div>
+				<%= link_to 'Edit', edit_business_hour_path(@business_hour), class: 'btn btn-danger' %>
+				<%= link_to 'Back', business_hours_path, class: 'btn btn-secondary' %>
+			</div>
 		<div class='col-md-3'>
 		</div>
-
 	</div>
 </div>

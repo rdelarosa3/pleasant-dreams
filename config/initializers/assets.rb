@@ -12,10 +12,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w( dataTables.bootstrap4.css )
-Rails.application.config.assets.precompile += %w( jquery.dataTables.min.js )
-Rails.application.config.assets.precompile += %w( dataTables.bootstrap4.min.js )
-Rails.application.config.assets.precompile += %w( TimeTable.css TimeTable.js )
+
 Rails.application.config.assets.precompile += %w( createjs.min.js)
 Rails.application.config.assets.precompile += %w( welcome.js)
 Rails.application.config.assets.precompile += %w( lightbox-plus-jquery.js lightbox-plus-jquery.min.js lightbox-plus-jquery.min.map )

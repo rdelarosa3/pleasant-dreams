@@ -1,19 +1,6 @@
-<!-- <div class="text-field">
-  = form.label :email %>
-  = form.text_field :email, type: 'email' %>
-</div>
-
-<div class="password-field">
-  = form.label :password %>
-  = form.password_field :password %>
-</div>
- -->
-
 
  <h2 class="text-center"></h2> 
  <%= simple_form_for @user, :url => { :action => "new_staff" }, :html => { :method => "put", class: "form-signup" } do |u| %>
-
-  <!-- = simple_form_for @user, html: { class: "form-signup" } do |u| %> -->
 
     <%= u.input :email, placeholder: 'Email address', label: false %>
     <%= u.input :last_name, placeholder: 'Last name', label: false, error: 'Last name is mandatory, please specify one' %>

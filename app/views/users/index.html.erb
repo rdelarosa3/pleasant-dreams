@@ -1,56 +1,48 @@
 <style>
-  table a{
-    color:white;
-  }
   body {
     background-color: #343a406e;
   }
-  @media (max-width: 900px){
-  .responsive-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
+  footer p{
+    color:black;
   }
 </style>
-<div class="container mt-100">
-  <center><h1 class="text-center font-weight-bold">Staff</h1></center>
-  <div class="row">
-      
-      <table class="table table-dark responsive-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Title</th>
-            <th>Role</th>
-            <th> View</th>
-            <th> Edit </th>
-            <th> Delete </th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @users.each do |user| %>
+<div id="usersIndex">
+  <div class="container mt-100">
+    <center><h1 class="text-center font-weight-bold">Staff</h1></center>
+    <div class="row">
+        
+        <table class="table table-dark responsive-table">
+          <thead>
             <tr>
-              <td><%= user.first_name %> <%= user.last_name %></td>
-              <td><%= user.email %></td>
-              <td><%= user.phone_number if user.phone_number.present?%></td>
-              <td><%= user.title.name unless user.title == nil%></td>
-              <td><%= user.role %></td>
-              <td><%= link_to 'Show', user %></td>
-              <td><%= link_to 'Edit', edit_user_path(user) %></td>
-              <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Title</th>
+              <th>Role</th>
+              <th> View</th>
+              <th> Edit </th>
+              <th> Delete </th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.first_name %> <%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.phone_number if user.phone_number.present?%></td>
+                <td><%= user.title.name unless user.title == nil%></td>
+                <td><%= user.role %></td>
+                <td><%= link_to 'Show', user %></td>
+                <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <br>  
+      <center><%= link_to 'New user', new_user_path, class: 'btn btn-danger' %></center>
     </div>
-    <br>  
-    <center><%= link_to 'New user', new_user_path, class: 'btn btn-danger' %></center>
   </div>
 </div>
-

@@ -3,18 +3,14 @@
   <div class="row">
     <div class="col-md-2">
     </div>
-    <div class="col-md-8 shadow">	
-    
-            <p>Reviewed: <% if @request.reviewed %> Yes <% else %> No <%end %></p>
-            <p>Name:<span><%= @request.first_name%> <%= @request.last_name %></span></p>
-            <p>Email: <%= @request.email %></p>
-            <p>Phone: <%= @request.phone_number %></p>
-            <p>Subject: <%= @request.subject %></p>
-            <p>Message: <%= @request.message %></p>
-            <%= link_to 'Back', requests_path, class: 'btn btn-secondary mb-4' %>
- 
-          
-    
+    <div class="col-md-8 shadow">	   
+        <p>Reviewed: <% if @request.reviewed %> Yes <% else %> No <%end %></p>
+        <p>Name:<span><%= @request.first_name%> <%= @request.last_name %></span></p>
+        <p>Email: <%= @request.email %></p>
+        <p>Phone: <%= @request.phone_number %></p>
+        <p>Subject: <%= @request.subject %></p>
+        <p>Message: <%= @request.message %></p>
+        <%= link_to 'Back', requests_path, class: 'btn btn-secondary mb-4' %> 
     </div>
     <div class="col-md-2">
     </div>

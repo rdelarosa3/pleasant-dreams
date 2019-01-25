@@ -1,51 +1,28 @@
-
-<!-- css in page to change only elements in this view -->
 <style>
   body {
     background-color: #00000040;
     color:white;
   }
-
-  .card, .card a, .card p{
-    background: url('<%= asset_url "broken_noise.png"%>');
+  footer p, footer a {
     color:white;
-  }
-  .mt-100 {
-    margin-top: 100px;
-  }
-
-  h2 {
-    font-size: 40px;
-    font-weight: 700;
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-  }
-
-  h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-  }
-
-  .appointment-card{
-    margin-top: 2.5rem;
   }
 </style>
 
-<div class="container mt-100 mb-4">
-  <div class="row">
-    <div class="col-md-3 mb-4"></div>
-    <div class="col-md-5 mb-4">
-      <div class="card shadow">
-        <h2 class="text-center mt-4">REGISTRATION FORM</h2> 
-        <center><p id="notice"><%= notice %></p></center>
-        <div class="card-body form-group" id="userEdit">
-          
-          
-            <%= render partial: '/users/form' %>     
+<div id="userRegistration">
+  <div class="container mt-100 mb-4">
+    <div class="row">
+      <div class="col-md-3 mb-4"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card shadow">
+          <h2 class="text-center mt-4">REGISTRATION FORM</h2> 
+          <center><p id="notice"><%= notice %></p></center>
+          <div class="card-body form-group" id="userEdit">         
+              <%= render partial: '/users/form' %>     
+          </div>
         </div>
+        <br>
       </div>
-      <br>
+      <div class="col-md-3 mb-4"></div>
     </div>
-    <div class="col-md-3 mb-4"></div>
   </div>
 </div>

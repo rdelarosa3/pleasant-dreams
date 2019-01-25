@@ -1,56 +1,55 @@
+body {
+  /*background-image: linear-gradient(to top, #0cafcebf 0%, #ffffff 70%);*/
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-  body {
-    /*background-image: linear-gradient(to top, #0cafcebf 0%, #ffffff 70%);*/
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+.mt-100 {
+  margin-top: 100px;
+}
 
-  .mt-100 {
-    margin-top: 100px;
-  }
+.btn-danger {
+  color: #fff;
+  background-color: #d22334d4;
+  border-color: #d42e3ea8;
+}
 
-  .btn-danger {
-    color: #fff;
-    background-color: #d22334d4;
-    border-color: #d42e3ea8;
-  }
-
-  h2 {
-    font-size: 40px;
-    font-weight: 700;
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-  }
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
 
 
-  h4 {
-    letter-spacing: 2px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-  }
+h4 {
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
 
-  h6{
+h6{
   margin: 1.6em 0;
-  }
+}
 
-  .card p {
-    font-size: .8rem;
-    font-weight: 400;
-    color: #abbccc;
-    font-family: 'Roboto Slab',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-  }
+.card p {
+  font-size: .8rem;
+  font-weight: 400;
+  color: #abbccc;
+  font-family: 'Roboto Slab',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
 
-  #contactPage .table-responsive {
-    display: inline-table;
-  }
+#contactPage .table-responsive {
+  display: inline-table;
+}
 
-  @media (max-width: 1000px) {
-    #contactPage .business-info {
-      margin-left: 50px;
-    }
+@media (max-width: 1000px) {
+  #contactPage .business-info {
+    margin-left: 50px;
   }
-  
-  @media (max-width: 800px) {
+}
+
+@media (max-width: 800px) {
   #contactPage {
     display: -webkit-box;
     display: -moz-box;
@@ -86,3 +85,187 @@
     order: 1;
   }
 }
+
+
+/**- CONTACT US PAGE -**/
+
+/* Set the size of the div element that contains the map */
+
+#contactUsPage #map {
+  height: 400px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+}
+
+#contactUsPage .card{
+
+  background: url(asset-path("broken_noise.png"));
+}
+#contactUsPage a{
+  color:white;
+}
+
+@media (max-width: 800px){
+  #contactUsPage .btn-danger{
+    width:100%!important;
+  }
+}
+/**- END CONTACT US PAGE -**/
+
+
+/**- REQUESTS INDEX PAGE -**/
+
+ @media (min-width:768px){
+    #tableForm {
+    display: inline-table!important;
+    }
+  }
+
+
+  .blink{
+    color: rgb (0, 137, 226);
+    
+    animation: blink 1s infinite;
+   }
+   
+  @keyframes blink{
+    0%{opacity: 1;}
+    75%{opacity: 1;}
+    76%{ opacity: 0;}
+    100%{opacity: 0;}
+   }
+
+#table1.bt thead,
+#table1.bt tbody th {
+  display: none;
+}
+
+#table1.bt tfoot th,
+#table1.bt tfoot td,
+#table1.bt tbody td {
+  border: none;
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: top;
+
+  /* IE 9 */
+  float: left\9;
+  width: 100%\9;
+}
+
+#table1.bt tfoot th::before,
+#table1.bt tfoot td::before,
+#table1.bt tbody td::before {
+  content: attr(data-th) ": ";
+  display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  font-weight: bold;
+  width: 6.7em;
+}
+
+#table1.bt tfoot th.bt-hide,
+#table1.bt tfoot td.bt-hide,
+#table1.bt tbody td.bt-hide {
+  display: none;
+}
+
+#table1.bt tfoot th .bt-content,
+#table1.bt tfoot td .bt-content,
+#table1.bt tbody td .bt-content {
+  vertical-align: top;
+}
+
+.bt-wrapper.active {
+  max-height: 310px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#table1.bt.bt--no-header tfoot td::before,
+#table1.bt.bt--no-header tbody td::before {
+  display: none;
+}
+
+#table1 {
+  background: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table1 tr,
+#table1 th,
+#table1 td {
+  border: none;
+  border-bottom: 1px solid #e4ebeb;
+  /*font-family: 'Lato', sans-serif;*/
+  font-size: .875rem;
+}
+
+#table1 th,
+#table1 td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+#table1 th {
+  background: black;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+#table1 tr td {
+  background: #e8e8e8;
+  color: #495057;
+}
+
+#table1 tr:nth-of-type(2n+2) td {
+  background: #ffffff;
+}
+
+#table1.bt tfoot th,
+#table1.bt tfoot td,
+#table1.bt tbody td {
+  font-size: .8125rem;
+  padding: 0;
+}
+
+#table1.bt tfoot th:before,
+#table1.bt tfoot td:before,
+#table1.bt tbody td:before {
+  background: black;
+  color: white;
+  margin-right: 10px;
+  padding: 2px 10px;
+}
+
+#table1.bt tfoot th .bt-content,
+#table1.bt tfoot td .bt-content,
+#table1.bt tbody td .bt-content {
+  display: inline-block;
+  padding: 2px 5px;
+}
+
+#table1.bt tfoot th:first-of-type:before,
+#table1.bt tfoot th:first-of-type .bt-content,
+#table1.bt tfoot td:first-of-type:before,
+#table1.bt tfoot td:first-of-type .bt-content,
+#table1.bt tbody td:first-of-type:before,
+#table1.bt tbody td:first-of-type .bt-content {
+  padding-top: 10px;
+}
+
+#table1.bt tfoot th:last-of-type:before,
+#table1.bt tfoot th:last-of-type .bt-content,
+#table1.bt tfoot td:last-of-type:before,
+#table1.bt tfoot td:last-of-type .bt-content,
+#table1.bt tbody td:last-of-type:before,
+#table1.bt tbody td:last-of-type .bt-content {
+  padding-bottom: 10px;
+  margin-bottom: 1px;
+}
+
+/**- END REQUESTS INDEX PAGE -**/
