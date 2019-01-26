@@ -6,9 +6,6 @@ class RequestMailer < ApplicationMailer
 
   def new_request(request, users)
   		@request = request
-  		@users = users
-  		@users.each do |user|
-  			mail(to: user.email, subject: "Pleasant Dreams Co. NEW Inquiry")
-  		end
+  		mail(to: users, subject: "Pleasant Dreams Co. NEW Inquiry")
   end
 end

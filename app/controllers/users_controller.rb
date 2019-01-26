@@ -47,7 +47,9 @@ class UsersController < Clearance::UsersController
     end
 
     def show
-
+      if @user.admin?
+        redirect_to root_path
+      end
     end
     
     private

@@ -25,10 +25,14 @@ class RequestsController < ApplicationController
 
     @request = Request.new(request_params)
     @users = User.all.where(role: [1,2])
+    cc_users = []
+    @users.each do |user|
+      cc_users << user.email
+    end
     respond_to do |format|
-      if @request.save # format.js { render :file => "/layouts/application.js"}
+      if @request.save
         RequestMailer.status_email(@request).deliver
-        RequestMailer.new_request(@request,@users).deliver
+        RequestMailer.new_request(@request,cc_users).deliver
         flash.now.notice = "Inquiry request submitted."
         format.html { redirect_to root_path, notice: 'Inquiry request submitted.' }
         format.json { render :show, status: :created, location: @request }
@@ -71,21 +75,13 @@ class RequestsController < ApplicationController
   private
       # to keep users other than admin from accessing
     def authorize
-      if signed_in?
-        unless current_user.admin? || current_user.operator?
+      unless signed_in?
           redirect_to root_path, alert: 'You must be admin to access this page.' 
-        end
-      else
-        redirect_to root_path
       end
     end
 
     def index_check
-      if signed_in?
-        unless current_user.admin? || current_user.operator?
-          redirect_to portal_path, alert: 'You must be admin to access this page.' 
-        end
-      else
+      unless signed_in?
         redirect_to portal_path
       end
     end
