@@ -47,8 +47,10 @@ class UsersController < Clearance::UsersController
     end
 
     def show
-      if @user.admin?
-        redirect_to root_path
+      if @user.admin? 
+        unless signed_in? && current_user.admin?
+          redirect_to root_path
+        end
       end
     end
     
