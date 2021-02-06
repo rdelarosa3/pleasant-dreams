@@ -2,8 +2,7 @@
 <b></b>
 <b></b>
 <p align="center"> 
-ROvIX is a full-stack Ruby application, built on the Rails framework. This Web App allows users the ability to track publicly
-traded companies market data, news and social sentiment. 
+Pleasant Dreams is a Full Stack Ruby Web app built on Rails Framework. This app allows users to book appointments through a custom booking system, admin dashboard and email response.
 </p>
 
 ## Table of Contents
@@ -12,7 +11,7 @@ traded companies market data, news and social sentiment.
 3. [Setup Instruction](https://github.com/rdelarosa3/pleasant-dreams#setup-instruction)
 4. [Contribution](https://github.com/rdelarosa3/pleasant-dreams#contribution)
 ### Demo
-[pleasant-dreams.herokuapp.com](https://pleasant-dreams.herokuapp.com/)
+[pleasantdreams.herokuapp.com](https://pleasantdreams.herokuapp.com/)
                         
 ### Technologies
 - Oauth2 [link](https://oauth.net/2/)
