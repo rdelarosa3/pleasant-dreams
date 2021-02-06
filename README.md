@@ -19,7 +19,7 @@ Pleasant Dreams is a Full Stack Ruby Web app built on Rails Framework. This app 
 - Bootstrap [link](https://getbootstrap.com/)
 - jQuery [link](https://jquery.com/)
 - Rails 5.2 
-- Ruby
+- Ruby 2.5.0
 - Active Record
 - PostgreSQL
 - Heroku
@@ -32,7 +32,7 @@ Pleasant Dreams is a Full Stack Ruby Web app built on Rails Framework. This app 
 
 The setups steps expect following tools installed on the system.
 
-- Ruby 2.6.6
+- Ruby 2.5.0
 - Rails 5.2
 - AWS S3 bucket and credentials
 
